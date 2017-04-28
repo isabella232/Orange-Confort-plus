@@ -2841,6 +2841,14 @@ accessibilitytoolbar = {
         accessibilitytoolbar.uciAttachEvent('change','onchange',document.getElementById('uci_discover_layout'), UciHelp.demo_layout);
         accessibilitytoolbar.uciAttachEvent('change','onchange',document.getElementById('uci_discover_none'), UciHelp.demo_reset);
 
+        accessibilitytoolbar.uciAttachEvent('resize','onresize',window,  UciHelp.calculate_overlay_position);
+
+        
+        //accessibilitytoolbar.uciAttachEvent('click','onclick',document.getElementById('uci_reading_move_left'), function(){UciHelp.changeText("left");});
+        //accessibilitytoolbar.uciAttachEvent('click','onclick',document.getElementById('uci_reading_move_right'), function(){UciHelp.changeText("right");});
+
+        /******************************************************************************************************/
+
         accessibilitytoolbar.uciAttachEvent('click','onclick',document.getElementById('uci_FR'), function() {return UciIhm.changement_langue('FR');});
         accessibilitytoolbar.uciAttachEvent('click','onclick',document.getElementById('uci_EN'), function() {return UciIhm.changement_langue('EN');});
         accessibilitytoolbar.uciAttachEvent('click','onclick',document.getElementById('uci_ES'), function() {return UciIhm.changement_langue('ES');});
@@ -3721,7 +3729,6 @@ accessibilitytoolbar = {
                 newStyle = document.createElement("style");
                 newStyle.setAttribute("type", "text/css");
                 newStyle.id = "a11yUserPrefStyle";
-                console.log("ok");
                 fontSizeDef = '16px';
                 if (accessibilitytoolbar.userPref.get("a11yBigger") !== "keepit") {
                     s += "html { font-size:" + accessibilitytoolbar.userPref.get("a11yBigger") * (parseFloat(fontSizeDef) / 16) + "% !important; }\n";
@@ -3735,7 +3742,6 @@ accessibilitytoolbar = {
                     } else { // standards-oriented browsers
                         newStyle.appendChild(document.createTextNode(s));
                     }
-                    console.log(newStyle);
                     //document.getElementsByTagName('head')[0].appendChild(newStyle)
                     indexIFrame = 0;
                     TheIFrames = document.getElementsByTagName("iframe");
@@ -3744,7 +3750,6 @@ accessibilitytoolbar = {
                             try {
                                 theIFrameDocument = theIFrame.document || theIFrame.contentDocument;
                                 if (theIFrameDocument.getElementsByTagName('head')[0]) {
-                                    console.log("toto");
                                     theIFrameDocument.getElementsByTagName('head')[0].appendChild(newStyle.cloneNode(true));
                                 }
                             } catch (e) { }
