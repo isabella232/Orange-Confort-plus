@@ -164,6 +164,7 @@ UciHelp = {
       ]
     ])
   },
+
   show_popin: function () {
     document.getElementById("uci_activer_menu").blur();
     if (document.getElementById("uci_cdu_popin")) {
