@@ -162,5 +162,7 @@ traduction['EN']={
   uci_exit : "Exit",
   uci_close_guide : "Close guide",
   uci_menu : "Menu",
-  uci_default : "default"
+  uci_default : "default",
+  uci_previous: "previous",
+  uci_next: "next"
 };
