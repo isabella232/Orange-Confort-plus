@@ -3311,7 +3311,10 @@ accessibilitytoolbar = {
             if (document.getElementById('cdu_close')) {
                 document.getElementById('cdu_close').style.display == 'none';
             }
-            accessibilitytoolbar.show();
+            toolbarContent = document.getElementById("cdu_content");
+            if (!toolbarContent || toolbarContent.className.match(/cdu_displayN/)) {
+                accessibilitytoolbar.show();
+            }
         }
          if (demo != null) {
                 indexIFrame = 0;
