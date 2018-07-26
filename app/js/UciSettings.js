@@ -49,7 +49,17 @@ UciSettings = {
               ["label", {"for":"a11ySupImageFirstPlan"}, accessibilitytoolbar.get('uci_label_disablepppictures')],
               accessibilitytoolbar.makeHelpTpl("uci_link_help_disablepppictures","uci_help_disablepppictures",accessibilitytoolbar.get('uci_help_disablepppictures'))
             ]
+          ],
+          ["div", {"class":"uci_onglet_div margin-left margin-right-xlg"},
+          ["div", {"class":"margin-top-lg"}, accessibilitytoolbar.get('uci_shortcut_title'),
+              ["p", {"class":"font-normal margin-left-lg margin-top"}, accessibilitytoolbar.get('uci_shortcut_text')],
+              ],
+          ["div", {id:"uci_div_desactiver_transparence"},
+              ["label", {"for":"a11ySupShortcut"}, accessibilitytoolbar.get('uci_label_shortcut')],
+              ["input", {type:"text", name:"a11ySupShortcut", id:"a11ySupShortcut", value:accessibilitytoolbar.userPref.get("a11ySupShortcut") === "undefined" ? "value": "T" }],
+              accessibilitytoolbar.makeHelpTpl("uci_link_help_shortcut","uci_help_shortcut",accessibilitytoolbar.get('uci_help_shortcut')) 
           ]
+        ]
         ]);
     }
 }
