@@ -463,6 +463,26 @@ UciIhm = {
     }
     return false;
   },
+  update_shortcut: function (/* String*/shortcut) {
+    // if stack value not equal to storedValue then display a confirm message to inform the user
+    // Ignore the displaytoolbar, and lang flag for comparison 
+    if ((accessibilitytoolbar.userPref.encode() === accessibilitytoolbar.userPref.getCurrentPref()) 
+      || confirm(accessibilitytoolbar.get('uci_modif_not_saved'))) {
+      accessibilitytoolbar.userPref.decode(accessibilitytoolbar.userPref.getCurrentPref());
+      accessibilitytoolbar.userPref.set("a11ySupShortcut", shortcut);
+      accessibilitytoolbar.needToReload = true;
+      accessibilitytoolbar.userPref.updateUserPref();
+      // when the user change the lang of the interface, wee need to reload after save is done
+      accessibilitytoolbar.reloadToolbar();
+      if(accessibilitytoolbar.userPref.settings.current.length >= 3) {
+        accessibilitytoolbar.saveUserPref(accessibilitytoolbar.userPref.settings.current);
+      } else {
+        accessibilitytoolbar.saveUserPref();
+      }
+      
+    }
+    return false;
+  },
   remove_all: function () {
         if(confirm(accessibilitytoolbar.get('uci_remove_all_settings'))) {            
             accessibilitytoolbar.userPref.setStoredValue();

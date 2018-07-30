@@ -488,6 +488,7 @@ function LoopingMode() {
     // Registering trigger
     that.registerTrigger();
     LoopingUtility.registerFocusedHandler();
+
   };
 
   // Looping menu items definition
@@ -2629,7 +2630,7 @@ accessibilitytoolbar = {
    */
   toolbarCreateButton: function () {
     return accessibilitytoolbar.make(["p", { id: "cdu_close", style: accessibilitytoolbar.userPref.get('a11yToolbarEnable') == 'on' ? "display:none" : "display:block" },
-      ["button", { title: this.get('uci_alt_logo') }, this.get('uci_serv_name'),
+      ["button", { title: this.get('uci_alt_logo'), id: this.get('uci_alt_logo') }, this.get('uci_serv_name'),
         ["span", "+"]
       ]
     ]);
@@ -2803,6 +2804,7 @@ accessibilitytoolbar = {
     accessibilitytoolbar.uciAttachEvent('click', 'onclick', document.getElementById('uci_menu_remove_all'), UciIhm.remove_all);
     accessibilitytoolbar.uciAttachEvent('click', 'onclick', document.getElementById('uci_help_menu_button'), function (e) { UciIhm.uci_toggle_menu('uci_help_menu', e) });
     accessibilitytoolbar.uciAttachEvent('click', 'onclick', document.getElementById('uci_lang_menu_button'), function (e) { UciIhm.uci_toggle_menu('uci_lang_menu', e) });
+    accessibilitytoolbar.uciAttachEvent('click', 'onclick', document.getElementById('uci_shortcut_menu_button'), function (e) { UciIhm.uci_toggle_menu('uci_shortcut_menu', e) });
     accessibilitytoolbar.uciAttachEvent('focusout', 'onfocusout', document.getElementById('uci_help_list'), UciIhm.setFocusHelpOut);
     accessibilitytoolbar.uciAttachEvent('focusin', 'onfocusin', document.getElementById('uci_help_list'), UciIhm.setFocusHelpIn);
     accessibilitytoolbar.uciAttachEvent('focusout', 'onfocusout', document.getElementById('uci_lang_list'), UciIhm.setFocusLangOut);
@@ -2819,6 +2821,13 @@ accessibilitytoolbar = {
     accessibilitytoolbar.uciAttachEvent('click', 'onclick', document.getElementById('uci_EN'), function () { return UciIhm.changement_langue('EN'); });
     accessibilitytoolbar.uciAttachEvent('click', 'onclick', document.getElementById('uci_ES'), function () { return UciIhm.changement_langue('ES'); });
     accessibilitytoolbar.uciAttachEvent('click', 'onclick', document.getElementById('uci_PL'), function () { return UciIhm.changement_langue('PL'); });
+
+    accessibilitytoolbar.uciAttachEvent('click', 'onclick', document.getElementById('uci_shortcut_Q'), function () { return UciIhm.update_shortcut('Q'); });
+    accessibilitytoolbar.uciAttachEvent('click', 'onclick', document.getElementById('uci_shortcut_S'), function () { return UciIhm.update_shortcut('S'); });
+    accessibilitytoolbar.uciAttachEvent('click', 'onclick', document.getElementById('uci_shortcut_W'), function () { return UciIhm.update_shortcut('W'); });
+    accessibilitytoolbar.uciAttachEvent('click', 'onclick', document.getElementById('uci_shortcut_X'), function () { return UciIhm.update_shortcut('X'); });
+    accessibilitytoolbar.uciAttachEvent('click', 'onclick', document.getElementById('uci_shortcut_C'), function () { return UciIhm.update_shortcut('C'); });
+
     accessibilitytoolbar.uciAttachEvent('submit', 'onsubmit', document.getElementById('uci_form'), function (e) { accessibilitytoolbar.stopEvt(e); UciValidation.Validation(); UciIhm.confirm_validation(); });
     accessibilitytoolbar.uciAttachEvent('reset', 'onreset', document.getElementById('uci_form'), function (e) { accessibilitytoolbar.stopEvt(e); UciValidation.Annulation(); });
     if(onOffEnabled) {
@@ -2845,6 +2854,9 @@ accessibilitytoolbar = {
 
     accessibilitytoolbar.uciAttachEvent('click', 'onclick', document.getElementById('uci_link_help_disabletransp'), function () { return accessibilitytoolbar.toolbarDisplayHelp('uci_help_disabletransp'); });
     accessibilitytoolbar.uciAttachEvent('blur', 'onblur', document.getElementById('uci_link_help_disabletransp'), function () { return accessibilitytoolbar.toolbarHideHelp('uci_help_disabletransp'); });
+
+    accessibilitytoolbar.uciAttachEvent('click', 'onclick', document.getElementById('uci_link_help_shortcut'), function () { return accessibilitytoolbar.toolbarDisplayHelp('uci_help_shortcut'); });
+    accessibilitytoolbar.uciAttachEvent('blur', 'onblur', document.getElementById('uci_link_help_shortcut'), function () { return accessibilitytoolbar.toolbarHideHelp('uci_help_shortcut'); });
 
     accessibilitytoolbar.uciAttachEvent('click', 'onclick', document.getElementById('uci_link_help_disablepppictures'), function () { return accessibilitytoolbar.toolbarDisplayHelp('uci_help_disablepppictures'); });
     accessibilitytoolbar.uciAttachEvent('blur', 'onblur', document.getElementById('uci_link_help_disablepppictures'), function () { return accessibilitytoolbar.toolbarHideHelp('uci_help_disablepppictures'); });
@@ -2876,6 +2888,7 @@ accessibilitytoolbar = {
       accessibilitytoolbar.uciAttachEvent('focus', 'onfocus', document.getElementById('uci_profile_menu_button'), function () { UciIhm.setFocusHelpOut(); UciIhm.setFocusLangOut() });
       accessibilitytoolbar.uciAttachEvent('focus', 'onfocus', document.getElementById('uci_help_menu_button'), function () { UciProfile.setFocusOut(); UciIhm.setFocusLangOut() });
       accessibilitytoolbar.uciAttachEvent('focus', 'onfocus', document.getElementById('uci_lang_menu_button'), function () { UciProfile.setFocusOut(); UciIhm.setFocusHelpOut() });
+      accessibilitytoolbar.uciAttachEvent('focus', 'onfocus', document.getElementById('uci_shortcut_menu_button'), function () { UciProfile.setFocusOut(); UciIhm.setFocusHelpOut() });
       accessibilitytoolbar.uciAttachEvent('focus', 'onfocus', document.getElementById('uci_close_toolbar'), function () { UciProfile.setFocusOut(); UciIhm.setFocusHelpOut(); UciIhm.setFocusLangOut()  });
       accessibilitytoolbar.uciAttachEvent('click', 'onclick', document.getElementById('uci_valider'), function () { UciProfile.setFocusOut(); UciIhm.setFocusHelpOut(); UciIhm.setFocusLangOut()  });
     }
@@ -2898,7 +2911,6 @@ accessibilitytoolbar = {
         accessibilitytoolbar.setCSS();
     }
   },
-
   /**
    * Global document mouse eventHandler for catching mousePosition when enabling mask
    */
@@ -3280,7 +3292,7 @@ accessibilitytoolbar = {
   updateIhmFormsSettings: function () {
     var pref, prefarray, ariaRadioSettings = ["a11yDyslexyFont", "a11ySpacement", "a11yLineSpacement",
       "a11yModifCasse", "a11yMaskOpacity", "a11yNavLienSelColor", "a11yNavLienNonVisColor",
-      "a11yNavLienVisColor", "a11yFontColor", "a11yBackgroundColor",
+      "a11yNavLienVisColor", "a11yFontColor", "a11yBackgroundColor","a11ySupShortcut",
       "a11yDelayBeforeClick", "a11yMenuPositionning", "a11yDelayBeforeLoop", "a11yQuickMode"];
     var checkboxSettings = ["a11yVisualSettings", "a11yLinearize", "a11yLeftText", "a11yNumerotationList", "a11yNavLienEnabled", "a11ySupEffetTransp", "a11ySupImageFont", "a11ySupImageFirstPlan", "a11yMaskEnabled", "a11yJumpToContent", "a11yMotorModeRemote", "a11yMotorModeLooping"];
     var radioSettings = ["a11yMaskOption-mask","a11yMaskOption-vruler","a11yMaskOption-hruler"];
@@ -4146,6 +4158,9 @@ accessibilitytoolbar = {
     this.body.insertBefore(d, this.body.firstChild);
     accessibilitytoolbar.loadTheToolbar();
 
+    //Adding the opening of the toolbar with access key
+    var toolbarElement = document.getElementById(this.get('uci_alt_logo'))
+    toolbarElement.accessKey = accessibilitytoolbar.userPref.get("a11ySupShortcut");
   },
 
   loadTheToolbar: function () {

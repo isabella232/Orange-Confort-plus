@@ -50,6 +50,13 @@ function UciUserPref() {
      * @private
      */
     this.convertMatrixv3 = {
+        "a11ySupShortcut-0": "a11ySupShortcut-Q",
+        "a11ySupShortcut-1": "a11ySupShortcut-S",
+        "a11ySupShortcut-2": "a11ySupShortcut-W",
+        "a11ySupShortcut-3": "a11ySupShortcut-X",
+        "a11ySupShortcut-4": "a11ySupShortcut-C",
+        "a11ySupShortcut-5": "a11ySupShortcut-V",
+
         "a11ySiteWebEnabled-0": "a11ySiteWebEnabled-on",
         "a11ySiteWebEnabled-1": "a11ySiteWebEnabled-off",
         "a11yToolbarEnable-0": "a11yToolbarEnable-off",
@@ -188,6 +195,7 @@ function UciUserPref() {
     
     this.maskMatrixv3 = {
         // Mask Name                | Dec Value
+        "a11ySupShortcut":        [40,1],
         "a11ySiteWebEnabled":     [39,1],
         "a11yToolbarEnable":      [38,1],
         "a11yLanguage":           [37,1],
@@ -265,7 +273,8 @@ function UciUserPref() {
         "a11ySupEffetTransp":     "false",
         "a11ySupImageFont" :      "false",
         "a11ySupImageFirstPlan" : "false",
-        "a11ySiteWebEnabled" :    "on"
+        "a11ySiteWebEnabled" :    "on",
+        "a11ySupShortcut"    : "Q"
     };
     
     /**
@@ -286,10 +295,12 @@ function UciUserPref() {
             pref = this.predefinedSettings[this.settings.current];
         }
         // uniquement si le nombre de caractères du cookie est correct!
-        if(pref.length===37)
+        console.log(pref);
+        console.log(pref.length);
+        if(pref.length===38)
         {
           for (prefName in this.maskMatrixv3) {
-            if(prefName !== "a11ySiteWebEnabled" && prefName !== "a11yToolbarEnable" && prefName !== "a11yLanguage") {
+            if(prefName !== "a11ySiteWebEnabled" && prefName !== "a11yToolbarEnable" && prefName !== "a11yLanguage" && prefName !== "a11ySupShortcut" ) {
                 this.stackv3[prefName]= this.convertMatrixv3[prefName + "-" +pref.substr(this.maskMatrixv3[prefName][0],this.maskMatrixv3[prefName][1])].replace(/.*-/, "");
             }
           }
@@ -310,6 +321,10 @@ function UciUserPref() {
             if (prefName !== "") {
                 // si la pref existe dans le stack sinon 0
                 if(prefName in this.stackv3) {
+                    console.log(prefName);
+                    console.log(this.stackv3[prefName]);
+                    console.log(prefName + "-" + this.stackv3[prefName]);
+                    console.log(tempMatrix[prefName + "-" + this.stackv3[prefName]]);
                     pref = tempMatrix[prefName + "-" + this.stackv3[prefName]].replace(/.*-/, "") + pref;
                 }
                 // on garantie la longeur de la chaine
@@ -319,6 +334,7 @@ function UciUserPref() {
             }
         }
         pref = pref.substring(0,pref.length-3);
+        console.log(pref);
         // put toolbar enable and lang at the begening
         // pref = tempMatrix["a11yToolbarEnable" + "-" + this.stackv3["a11yToolbarEnable"]].replace(/.*-/, "") + "|" + tempMatrix["a11yLanguage" + "-" + this.stackv3["a11yLanguage"]].replace(/.*-/, "") + "|" + pref;
         return pref;
@@ -332,6 +348,7 @@ function UciUserPref() {
     this.encodeUsageConfort= function () {
         var tempMatrix = this.convertMatrixv3.reverse();
         var encodedValue = tempMatrix["a11yToolbarEnable" + "-" + this.stackv3["a11yToolbarEnable"]].replace(/.*-/, "") + "|" + tempMatrix["a11yLanguage" + "-" + this.stackv3["a11yLanguage"]].replace(/.*-/, "") + "|" + this.settings.current;
+        console.log(encodedValue);
         var profil;
         for (profil in this.settings.profiles) {
             encodedValue += "|"+profil+"|"+this.settings.profiles[profil];

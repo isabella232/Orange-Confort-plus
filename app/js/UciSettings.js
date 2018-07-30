@@ -51,15 +51,67 @@ UciSettings = {
             ]
           ],
           ["div", {"class":"uci_onglet_div margin-left margin-right-xlg"},
-          ["div", {"class":"margin-top-lg"}, accessibilitytoolbar.get('uci_shortcut_title'),
-              ["p", {"class":"font-normal margin-left-lg margin-top"}, accessibilitytoolbar.get('uci_shortcut_text')],
-              ],
-          ["div", {id:"uci_div_desactiver_transparence"},
-              ["label", {"for":"a11ySupShortcut"}, accessibilitytoolbar.get('uci_label_shortcut')],
-              ["input", {type:"text", name:"a11ySupShortcut", id:"a11ySupShortcut", value:accessibilitytoolbar.userPref.get("a11ySupShortcut") === "undefined" ? "value": "T" }],
-              accessibilitytoolbar.makeHelpTpl("uci_link_help_shortcut","uci_help_shortcut",accessibilitytoolbar.get('uci_help_shortcut')) 
-          ]
-        ]
+
+            ["li", { "class": "uci_inline ", id:"uci_lang_list" },    
+              ["div", {"class":"uci_onglet_div margin-left margin-right-xlg"},
+
+                ["div", {"class":"margin-top-lg"}, accessibilitytoolbar.get('uci_shortcut_title'),
+                  ["p", {"class":"font-normal margin-left-lg margin-top"}, accessibilitytoolbar.get('uci_shortcut_text')],
+                    ["label", {"for":"a11ySupShortcut"}, accessibilitytoolbar.get('uci_label_shortcut')],
+                    accessibilitytoolbar.makeHelpTpl("uci_link_help_shortcut","uci_help_shortcut",accessibilitytoolbar.get('uci_help_shortcut')),
+                    ["li", { "class": "uci_inline ", id:"uci_shortcut_list" },
+                      ["button", {"class":"ucibtn ucibtn-sm ucibtn-secondary uci_bton_menu cdu_c uci_dropdown", "aria-haspopup":"true", "aria-expanded":"false", id:"uci_shortcut_menu_button", type:"button"}, accessibilitytoolbar.userPref.get("a11ySupShortcut")],
+                      ["div",
+                        ["div", {id:"uci_shortcut_menu", style:"display:none;", class:"uci_submenu"},
+                          ["div", {id:"uci_language", "class":"uci_lang"},
+                            ["input", {
+                              "class": (accessibilitytoolbar.userPref.get("a11ySupShortcut") === "Q" ? "uci_choix active" : "uci_choix") + " ucibtn ucibtn-sm ucibtn-secondary",
+                              type: "button",
+                              name: "uci_shortcut_Q",
+                              value: "Q",
+                              id: "uci_shortcut_Q",
+                              title: accessibilitytoolbar.get('uci_txt_menu_shortcut_q')
+                            }],
+                            ["input", {
+                              "class": (accessibilitytoolbar.userPref.get("a11ySupShortcut") === "S" ? "uci_choix active" : "uci_choix") + " ucibtn ucibtn-sm ucibtn-secondary",
+                              type: "button",
+                              name: "uci_shortcut_S",
+                              value: "S",
+                              id: "uci_shortcut_S",
+                              title: accessibilitytoolbar.get('uci_txt_menu_shortcut_s')
+                            }],
+                            ["input", {
+                              "class": (accessibilitytoolbar.userPref.get("a11ySupShortcut") === "W" ? "uci_choix active" : "uci_choix") + " ucibtn ucibtn-sm ucibtn-secondary",
+                              type: "button",
+                              name: "uci_shortcut_W",
+                              value: "W",
+                              id: "uci_shortcut_W",
+                              title: accessibilitytoolbar.get('uci_txt_menu_shortcut_w')
+                            }],
+                            ["input", {
+                              "class": (accessibilitytoolbar.userPref.get("a11ySupShortcut") === "X" ? "uci_choix active" : "uci_choix") + " ucibtn ucibtn-sm ucibtn-secondary",
+                              type: "button",
+                              name: "uci_shortcut_X",
+                              value: "X",
+                              id: "uci_shortcut_X",
+                              title: accessibilitytoolbar.get('uci_txt_menu_shortcut_x')
+                            }],
+                            ["input", {
+                              "class": (accessibilitytoolbar.userPref.get("a11ySupShortcut") === "C" ? "uci_choix active" : "uci_choix") + " ucibtn ucibtn-sm ucibtn-secondary",
+                              type: "button",
+                              name: "uci_shortcut_C",
+                              value: "C",
+                              id: "uci_shortcut_C",
+                              title: accessibilitytoolbar.get('uci_txt_menu_shortcut_c')
+                            }],
+                          ]
+                        ]
+                      ]
+                    ]
+                ]
+              ]
+            ]
+          ]        
         ]);
     }
 }
