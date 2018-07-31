@@ -195,10 +195,11 @@ function UciUserPref() {
     
     this.maskMatrixv3 = {
         // Mask Name                | Dec Value
-        "a11ySupShortcut":        [40,1],
-        "a11ySiteWebEnabled":     [39,1],
-        "a11yToolbarEnable":      [38,1],
-        "a11yLanguage":           [37,1],
+        
+        "a11ySiteWebEnabled":     [40,1],
+        "a11yToolbarEnable":      [39,1],
+        "a11yLanguage":           [38,1],
+        "a11ySupShortcut":        [37,1],
         "a11yJumpToContent":      [36,1],
         "a11yLinearize":          [35,1],
         "a11yBigger":             [34,1],
@@ -295,13 +296,15 @@ function UciUserPref() {
             pref = this.predefinedSettings[this.settings.current];
         }
         // uniquement si le nombre de caractères du cookie est correct!
-        console.log(pref);
-        console.log(pref.length);
+
         if(pref.length===38)
         {
           for (prefName in this.maskMatrixv3) {
-            if(prefName !== "a11ySiteWebEnabled" && prefName !== "a11yToolbarEnable" && prefName !== "a11yLanguage" && prefName !== "a11ySupShortcut" ) {
+            if(prefName !== "a11ySiteWebEnabled" && prefName !== "a11yToolbarEnable" && prefName !== "a11yLanguage" ) {
+                
                 this.stackv3[prefName]= this.convertMatrixv3[prefName + "-" +pref.substr(this.maskMatrixv3[prefName][0],this.maskMatrixv3[prefName][1])].replace(/.*-/, "");
+
+                //console.log(tempMatrix[prefName + "-" + this.stackv3[prefName]]);
             }
           }
         }
@@ -321,16 +324,19 @@ function UciUserPref() {
             if (prefName !== "") {
                 // si la pref existe dans le stack sinon 0
                 if(prefName in this.stackv3) {
+                    
                     console.log(prefName);
                     console.log(this.stackv3[prefName]);
-                    console.log(prefName + "-" + this.stackv3[prefName]);
-                    console.log(tempMatrix[prefName + "-" + this.stackv3[prefName]]);
+                    console.log(tempMatrix[prefName + "-" + this.stackv3[prefName]] );
+                    console.log( prefName + "-" + this.stackv3[prefName] );
                     pref = tempMatrix[prefName + "-" + this.stackv3[prefName]].replace(/.*-/, "") + pref;
+                    console.log(pref);
                 }
                 // on garantie la longeur de la chaine
                 else {
                     pref = "0"+pref;
                 }
+                
             }
         }
         pref = pref.substring(0,pref.length-3);
