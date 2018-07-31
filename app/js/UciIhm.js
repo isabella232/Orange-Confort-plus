@@ -448,6 +448,7 @@ UciIhm = {
     // Ignore the displaytoolbar, and lang flag for comparison 
     if ((accessibilitytoolbar.userPref.encode() === accessibilitytoolbar.userPref.getCurrentPref()) 
       || confirm(accessibilitytoolbar.get('uci_modif_not_saved'))) {
+      document.getElementById('uci_validation').className = "cdu_n";
       accessibilitytoolbar.userPref.decode(accessibilitytoolbar.userPref.getCurrentPref());
       accessibilitytoolbar.userPref.set("a11yLanguage", langue);
       accessibilitytoolbar.needToReload = true;
@@ -472,14 +473,14 @@ UciIhm = {
       accessibilitytoolbar.userPref.set("a11ySupShortcut", shortcut);
       accessibilitytoolbar.needToReload = true;
       accessibilitytoolbar.userPref.updateUserPref();
-      // when the user change the lang of the interface, wee need to reload after save is done
       accessibilitytoolbar.reloadToolbar();
       if(accessibilitytoolbar.userPref.settings.current.length >= 3) {
         accessibilitytoolbar.saveUserPref(accessibilitytoolbar.userPref.settings.current);
       } else {
         accessibilitytoolbar.saveUserPref();
       }
-      
+      //wee need to reload after save is done
+      accessibilitytoolbar.firstInitToolbar();
     }
     return false;
   },

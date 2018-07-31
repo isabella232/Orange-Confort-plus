@@ -52,18 +52,18 @@ UciSettings = {
           ],
           ["div", {"class":"uci_onglet_div margin-left margin-right-xlg"},
 
-            ["li", { "class": "uci_inline ", id:"uci_lang_list" },    
-              ["div", {"class":"uci_onglet_div margin-left margin-right-xlg"},
+
 
                 ["div", {"class":"margin-top-lg"}, accessibilitytoolbar.get('uci_shortcut_title'),
-                  ["p", {"class":"font-normal margin-left-lg margin-top"}, accessibilitytoolbar.get('uci_shortcut_text')],
-                    ["label", {"for":"a11ySupShortcut"}, accessibilitytoolbar.get('uci_label_shortcut')],
-                    accessibilitytoolbar.makeHelpTpl("uci_link_help_shortcut","uci_help_shortcut",accessibilitytoolbar.get('uci_help_shortcut')),
-                    ["li", { "class": "uci_inline ", id:"uci_shortcut_list" },
+                  ["p", {"class":"font-normal margin-left-lg margin-top margin-bottom"}, accessibilitytoolbar.get('uci_shortcut_text')],
+                    ["label", {"class": "uci_inline uci_shortcut_aligned","for":"a11ySupShortcut"}, accessibilitytoolbar.get('uci_label_shortcut')],
+                    
+                    ["li", { "class": "uci_inline", id:"uci_shortcut_list" },
                       ["button", {"class":"ucibtn ucibtn-sm ucibtn-secondary uci_bton_menu cdu_c uci_dropdown", "aria-haspopup":"true", "aria-expanded":"false", id:"uci_shortcut_menu_button", type:"button"}, accessibilitytoolbar.userPref.get("a11ySupShortcut")],
+                      accessibilitytoolbar.makeHelpTpl("uci_link_help_shortcut","uci_help_shortcut",accessibilitytoolbar.get('uci_help_shortcut')),
                       ["div",
                         ["div", {id:"uci_shortcut_menu", style:"display:none;", class:"uci_submenu"},
-                          ["div", {id:"uci_language", "class":"uci_lang"},
+                          ["div", {id:"uci_shortcut", "class":"uci_lang"},
                             ["input", {
                               "class": (accessibilitytoolbar.userPref.get("a11ySupShortcut") === "Q" ? "uci_choix active" : "uci_choix") + " ucibtn ucibtn-sm ucibtn-secondary",
                               type: "button",
@@ -110,8 +110,8 @@ UciSettings = {
                     ]
                 ]
               ]
-            ]
-          ]        
+            
+                  
         ]);
     }
 }

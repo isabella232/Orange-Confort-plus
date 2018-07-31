@@ -893,6 +893,14 @@ li.uci_dropdown-divider {
 	float: left;
 }
 
+.uci_shortcut_aligned{
+	margin-top:0.5rem;
+	padding-right:0.4rem
+}
+
+.uci_shortcut_bottom{
+	margin-bottom:0.25rem;
+}
 .uci_liste_bton {
 	list-style: none outside none;
 	margin: 0;
