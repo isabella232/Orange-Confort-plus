@@ -119,6 +119,7 @@ traduction['ES']={
   uci_serv_name:"Confort",
   uci_shortcut_text: "El atajo de teclado activa o desactiva Confort+",
   uci_shortcut_title: "Modificar el valor del atajo de teclado",
+  uci_shortcut_title_currently:" (actualmente ",
   uci_stopLoop:"Parar la navegaci\363n",
   uci_txt_menu_shortcut_w:"Utilizar la tecla W con el atajo de teclado",
   uci_txt_menu_shortcut_s:"Utilizar la tecla S con el atajo de teclado",

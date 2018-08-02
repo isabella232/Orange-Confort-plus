@@ -118,8 +118,9 @@ traduction['EN']={
   uci_rename_profile: "Rename profile",//V4
   uci_serv_name:"Confort",
   uci_stopLoop:"Pause navigation",
-  uci_shortcut_title:"Edit the keyboard shortcut value",
-  uci_shortcut_text:"the keyboard shortcut disables ou enables Confort +.",
+  uci_shortcut_title:"Keyboard shortcut value",
+  uci_shortcut_title_currently:" (currently ",
+  uci_shortcut_text:"the keyboard shortcut disables or enables Confort +.",
   uci_title_color_blackongreen:"Black text on green background",
   uci_title_color_blackonwhite:"Black text on white background",
   uci_title_color_blueonwhite:"Blue text on white background",
