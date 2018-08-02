@@ -2630,7 +2630,7 @@ accessibilitytoolbar = {
    */
   toolbarCreateButton: function () {
     return accessibilitytoolbar.make(["p", { id: "cdu_close", style: accessibilitytoolbar.userPref.get('a11yToolbarEnable') == 'on' ? "display:none" : "display:block" },
-      ["button", { title: this.get('uci_alt_logo'), id: this.get('uci_alt_logo') }, this.get('uci_serv_name'),
+      ["button", { title: this.get('uci_alt_logo'), id: "confort+" }, this.get('uci_serv_name'),
         ["span", "+"]
       ]
     ]);
@@ -2822,11 +2822,11 @@ accessibilitytoolbar = {
     accessibilitytoolbar.uciAttachEvent('click', 'onclick', document.getElementById('uci_ES'), function () { return UciIhm.changement_langue('ES'); });
     accessibilitytoolbar.uciAttachEvent('click', 'onclick', document.getElementById('uci_PL'), function () { return UciIhm.changement_langue('PL'); });
 
-    accessibilitytoolbar.uciAttachEvent('click', 'onclick', document.getElementById('uci_shortcut_Q'), function () { return UciIhm.update_shortcut('Q'); });
-    accessibilitytoolbar.uciAttachEvent('click', 'onclick', document.getElementById('uci_shortcut_S'), function () { return UciIhm.update_shortcut('S'); });
-    accessibilitytoolbar.uciAttachEvent('click', 'onclick', document.getElementById('uci_shortcut_W'), function () { return UciIhm.update_shortcut('W'); });
-    accessibilitytoolbar.uciAttachEvent('click', 'onclick', document.getElementById('uci_shortcut_X'), function () { return UciIhm.update_shortcut('X'); });
-    accessibilitytoolbar.uciAttachEvent('click', 'onclick', document.getElementById('uci_shortcut_C'), function () { return UciIhm.update_shortcut('C'); });
+    accessibilitytoolbar.uciAttachEvent('click', 'onclick', document.getElementById('uci_shortcut_Q'), function () { UciIhm.update_shortcut('Q'); console.log("on click event");});
+    accessibilitytoolbar.uciAttachEvent('click', 'onclick', document.getElementById('uci_shortcut_S'), function () { UciIhm.update_shortcut('S'); console.log("on click event");});
+    accessibilitytoolbar.uciAttachEvent('click', 'onclick', document.getElementById('uci_shortcut_W'), function () { UciIhm.update_shortcut('W'); console.log("on click event");});
+    accessibilitytoolbar.uciAttachEvent('click', 'onclick', document.getElementById('uci_shortcut_X'), function () { UciIhm.update_shortcut('X'); console.log("on click event");});
+    accessibilitytoolbar.uciAttachEvent('click', 'onclick', document.getElementById('uci_shortcut_C'), function () { UciIhm.update_shortcut('C'); console.log("on click event");});
 
     accessibilitytoolbar.uciAttachEvent('submit', 'onsubmit', document.getElementById('uci_form'), function (e) { accessibilitytoolbar.stopEvt(e); UciValidation.Validation(); UciIhm.confirm_validation(); });
     accessibilitytoolbar.uciAttachEvent('reset', 'onreset', document.getElementById('uci_form'), function (e) { accessibilitytoolbar.stopEvt(e); UciValidation.Annulation(); });
@@ -2888,9 +2888,9 @@ accessibilitytoolbar = {
       accessibilitytoolbar.uciAttachEvent('focus', 'onfocus', document.getElementById('uci_profile_menu_button'), function () { UciIhm.setFocusHelpOut(); UciIhm.setFocusLangOut() });
       accessibilitytoolbar.uciAttachEvent('focus', 'onfocus', document.getElementById('uci_help_menu_button'), function () { UciProfile.setFocusOut(); UciIhm.setFocusLangOut() });
       accessibilitytoolbar.uciAttachEvent('focus', 'onfocus', document.getElementById('uci_lang_menu_button'), function () { UciProfile.setFocusOut(); UciIhm.setFocusHelpOut() });
-      accessibilitytoolbar.uciAttachEvent('focus', 'onfocus', document.getElementById('uci_shortcut_menu_button'), function () { UciProfile.setFocusOut(); UciIhm.setFocusHelpOut() });
+      accessibilitytoolbar.uciAttachEvent('focus', 'onfocus', document.getElementById('uci_shortcut_menu_button'), function () { UciProfile.setFocusOut(); UciIhm.setFocusShortcutOut() });
       accessibilitytoolbar.uciAttachEvent('focus', 'onfocus', document.getElementById('uci_close_toolbar'), function () { UciProfile.setFocusOut(); UciIhm.setFocusHelpOut(); UciIhm.setFocusLangOut()  });
-      accessibilitytoolbar.uciAttachEvent('click', 'onclick', document.getElementById('uci_valider'), function () { UciProfile.setFocusOut(); UciIhm.setFocusHelpOut(); UciIhm.setFocusLangOut()  });
+      accessibilitytoolbar.uciAttachEvent('click', 'onclick', document.getElementById('uci_valider'), function () { UciProfile.setFocusOut(); UciIhm.setFocusHelpOut(); UciIhm.setFocusLangOut(), UciIhm.setFocusShortcutOut()  });
     }
 
     // add a global listener for mask shortcut activation
@@ -3292,7 +3292,7 @@ accessibilitytoolbar = {
   updateIhmFormsSettings: function () {
     var pref, prefarray, ariaRadioSettings = ["a11yDyslexyFont", "a11ySpacement", "a11yLineSpacement",
       "a11yModifCasse", "a11yMaskOpacity", "a11yNavLienSelColor", "a11yNavLienNonVisColor",
-      "a11yNavLienVisColor", "a11yFontColor", "a11yBackgroundColor","a11ySupShortcut",
+      "a11yNavLienVisColor", "a11yFontColor", "a11yBackgroundColor",
       "a11yDelayBeforeClick", "a11yMenuPositionning", "a11yDelayBeforeLoop", "a11yQuickMode"];
     var checkboxSettings = ["a11yVisualSettings", "a11yLinearize", "a11yLeftText", "a11yNumerotationList", "a11yNavLienEnabled", "a11ySupEffetTransp", "a11ySupImageFont", "a11ySupImageFirstPlan", "a11yMaskEnabled", "a11yJumpToContent", "a11yMotorModeRemote", "a11yMotorModeLooping"];
     var radioSettings = ["a11yMaskOption-mask","a11yMaskOption-vruler","a11yMaskOption-hruler"];
@@ -4009,6 +4009,11 @@ accessibilitytoolbar = {
     document.getElementById('accessibilitytoolbarGraphic').replaceChild(htmlContent, document.getElementById('cdu_zone'));
     document.getElementById('uci_cdu_popin').style.display = "none";
     accessibilitytoolbar.loadTheToolbar();
+
+    //Adding the opening of the toolbar with access key
+    var toolbarElement = document.getElementById("confort+");
+    toolbarElement.accessKey = accessibilitytoolbar.userPref.get("a11ySupShortcut");
+    onOffEnabled="true";
   },
 
   /**
@@ -4159,8 +4164,9 @@ accessibilitytoolbar = {
     accessibilitytoolbar.loadTheToolbar();
 
     //Adding the opening of the toolbar with access key
-    var toolbarElement = document.getElementById(this.get('uci_alt_logo'))
+    var toolbarElement = document.getElementById("confort+");
     toolbarElement.accessKey = accessibilitytoolbar.userPref.get("a11ySupShortcut");
+    onOffEnabled="true";
   },
 
   loadTheToolbar: function () {

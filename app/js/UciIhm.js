@@ -26,6 +26,7 @@
 UciIhm = {
     timerFocusHelpOut: null,
     timerFocusLangOut: null,
+    timerFocusShortcutOut: null,
   /*
    * @public
    * @constructor
@@ -316,6 +317,22 @@ UciIhm = {
       }
     },
 
+        /**
+     * Close a submenu
+     * 
+     */
+    uci_close_shortcutmenu: function(idMenu) {
+      var menu = document.getElementById(idMenu);
+      if(menu)
+      {
+        menu.style.display = "none";
+        var button = document.getElementById(idMenu+"_button");
+        button.setAttribute('aria-expanded',false);
+        var li = button.parentNode;
+        li.className = 'uci_inline uci_menu_bton';      
+      }
+    },
+
     /**
      * If focus really goes out, close the submenu
      * 
@@ -326,6 +343,15 @@ UciIhm = {
     },
 
     /**
+     * If focus really goes out, close the submenu
+     * 
+     */
+    setFocusShortcutOut: function() {
+      clearTimeout(this.timerFocusShortcutOut);
+      this.timerFocusShortcutOut = setTimeout(function(){UciIhm.uci_close_shortcutmenu('uci_shortcut_menu')},10);
+    },
+
+        /**
      * If focus really goes out, close the submenu
      * 
      */
@@ -465,21 +491,37 @@ UciIhm = {
     return false;
   },
   update_shortcut: function (/* String*/shortcut) {
-    // if stack value not equal to storedValue then display a confirm message to inform the user
-    // Ignore the displaytoolbar, and lang flag for comparison 
-    if ((accessibilitytoolbar.userPref.encode() === accessibilitytoolbar.userPref.getCurrentPref()) 
-      || confirm(accessibilitytoolbar.get('uci_modif_not_saved'))) {
-      accessibilitytoolbar.userPref.decode(accessibilitytoolbar.userPref.getCurrentPref());
-      accessibilitytoolbar.userPref.set("a11ySupShortcut", shortcut);
-      accessibilitytoolbar.needToReload = true;
-      accessibilitytoolbar.userPref.updateUserPref();
-      accessibilitytoolbar.reloadToolbar();
-      if(accessibilitytoolbar.userPref.settings.current.length >= 3) {
-        accessibilitytoolbar.saveUserPref(accessibilitytoolbar.userPref.settings.current);
-      } else {
-        accessibilitytoolbar.saveUserPref();
+    if(accessibilitytoolbar.userPref.get("a11ySupShortcut") !== shortcut ) {
+      if(accessibilitytoolbar.userPref.settings.current.length >= 0) {
+        this.uci_close_shortcutmenu('uci_shortcut_menu');
+        console.log('inside update');
+        document.getElementById('uci_validation').className = "";
+          accessibilitytoolbar.uciAttachEvent('click', 'onclick', document.getElementById('uci_annuler'),
+          function (e) {
+            accessibilitytoolbar.stopEvt(e);
+            document.getElementById('uci_validation').className = "cdu_n";
+            UciIhm.setFocusShortcutOut()
+           });
+
+          accessibilitytoolbar.uciAttachEvent('click', 'onclick', document.getElementById('uci_valider'),
+          function (e) { 
+          accessibilitytoolbar.stopEvt(e);
+          document.getElementById('uci_validation').className = "cdu_n";
+          UciProfile.showProfilePopin();
+            accessibilitytoolbar.uciAttachEvent('submit','onsubmit',document.getElementById('uci_form_profil'),
+            function(e) {
+              accessibilitytoolbar.stopEvt(e);
+              accessibilitytoolbar.userPref.set("a11ySupShortcut", shortcut);
+              console.log(shortcut);
+              accessibilitytoolbar.needToReload = true;
+              accessibilitytoolbar.reloadToolbar();
+              accessibilitytoolbar.saveUserPref(accessibilitytoolbar.userPref.settings.current);
+              UciValidation.Validation();
+              UciProfile.hide_save_profile();
+              UciIhm.confirm_validation();
+            }); 
+        });
       }
-      //wee need to reload after save is done
       accessibilitytoolbar.firstInitToolbar();
     }
     return false;

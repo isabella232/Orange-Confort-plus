@@ -324,13 +324,7 @@ function UciUserPref() {
             if (prefName !== "") {
                 // si la pref existe dans le stack sinon 0
                 if(prefName in this.stackv3) {
-                    
-                    console.log(prefName);
-                    console.log(this.stackv3[prefName]);
-                    console.log(tempMatrix[prefName + "-" + this.stackv3[prefName]] );
-                    console.log( prefName + "-" + this.stackv3[prefName] );
                     pref = tempMatrix[prefName + "-" + this.stackv3[prefName]].replace(/.*-/, "") + pref;
-                    console.log(pref);
                 }
                 // on garantie la longeur de la chaine
                 else {
@@ -340,7 +334,6 @@ function UciUserPref() {
             }
         }
         pref = pref.substring(0,pref.length-3);
-        console.log(pref);
         // put toolbar enable and lang at the begening
         // pref = tempMatrix["a11yToolbarEnable" + "-" + this.stackv3["a11yToolbarEnable"]].replace(/.*-/, "") + "|" + tempMatrix["a11yLanguage" + "-" + this.stackv3["a11yLanguage"]].replace(/.*-/, "") + "|" + pref;
         return pref;
@@ -354,7 +347,6 @@ function UciUserPref() {
     this.encodeUsageConfort= function () {
         var tempMatrix = this.convertMatrixv3.reverse();
         var encodedValue = tempMatrix["a11yToolbarEnable" + "-" + this.stackv3["a11yToolbarEnable"]].replace(/.*-/, "") + "|" + tempMatrix["a11yLanguage" + "-" + this.stackv3["a11yLanguage"]].replace(/.*-/, "") + "|" + this.settings.current;
-        console.log(encodedValue);
         var profil;
         for (profil in this.settings.profiles) {
             encodedValue += "|"+profil+"|"+this.settings.profiles[profil];

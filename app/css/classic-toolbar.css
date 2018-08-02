@@ -894,8 +894,7 @@ li.uci_dropdown-divider {
 }
 
 .uci_shortcut_aligned{
-	margin-top:0.5rem;
-	padding-right:0.4rem
+	margin-top:1.3rem;
 }
 
 .uci_shortcut_bottom{
@@ -1849,6 +1848,9 @@ li.uci_dropdown-divider {
 	margin: 0;
 	border-right: 1px solid #CCC;
 	line-height: 1.125;
+}
+li[id=uci_shortcut_list] {
+	border-right: 0px solid !important;
 }
 #accessibilitytoolbarGraphic .uci_menu_bton {
 	padding: .625em;

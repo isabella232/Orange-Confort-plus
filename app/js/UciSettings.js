@@ -56,10 +56,10 @@ UciSettings = {
 
                 ["div", {"class":"margin-top-lg"}, accessibilitytoolbar.get('uci_shortcut_title'),
                   ["p", {"class":"font-normal margin-left-lg margin-top margin-bottom"}, accessibilitytoolbar.get('uci_shortcut_text')],
-                    ["label", {"class": "uci_inline uci_shortcut_aligned","for":"a11ySupShortcut"}, accessibilitytoolbar.get('uci_label_shortcut')],
+                    ["label", {"class": "uci_inline uci_shortcut_aligned","for":"uci_shortcut_menu_button"}, accessibilitytoolbar.get('uci_label_shortcut')],
                     
-                    ["li", { "class": "uci_inline", id:"uci_shortcut_list" },
-                      ["button", {"class":"ucibtn ucibtn-sm ucibtn-secondary uci_bton_menu cdu_c uci_dropdown", "aria-haspopup":"true", "aria-expanded":"false", id:"uci_shortcut_menu_button", type:"button"}, accessibilitytoolbar.userPref.get("a11ySupShortcut")],
+                    ["li", { "class": "uci_inline uci_menu_bton", id:"uci_shortcut_list" },
+                      ["button", {"class":"ucibtn ucibtn-sm ucibtn-secondary uci_bton_menu uci_dropdown", "aria-haspopup":"true", "aria-expanded":"false", id:"uci_shortcut_menu_button", type:"button"}, accessibilitytoolbar.userPref.get("a11ySupShortcut")],
                       accessibilitytoolbar.makeHelpTpl("uci_link_help_shortcut","uci_help_shortcut",accessibilitytoolbar.get('uci_help_shortcut')),
                       ["div",
                         ["div", {id:"uci_shortcut_menu", style:"display:none;", class:"uci_submenu"},
