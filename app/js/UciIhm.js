@@ -494,7 +494,6 @@ UciIhm = {
     if(accessibilitytoolbar.userPref.get("a11ySupShortcut") !== shortcut ) {
       if(accessibilitytoolbar.userPref.settings.current.length >= 0) {
         this.uci_close_shortcutmenu('uci_shortcut_menu');
-        console.log('inside update');
         document.getElementById('uci_validation').className = "";
           accessibilitytoolbar.uciAttachEvent('click', 'onclick', document.getElementById('uci_annuler'),
           function (e) {
@@ -514,7 +513,6 @@ UciIhm = {
               accessibilitytoolbar.userPref.set("a11ySupShortcut", shortcut);
               //settingthe value of the switch toolbar to on
               accessibilitytoolbar.userPref.set("a11ySiteWebEnabled", "on");
-              console.log(shortcut);
               accessibilitytoolbar.needToReload = true;
               accessibilitytoolbar.reloadToolbar();
               accessibilitytoolbar.saveUserPref(accessibilitytoolbar.userPref.settings.current);

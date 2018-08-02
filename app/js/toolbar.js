@@ -2822,11 +2822,11 @@ accessibilitytoolbar = {
     accessibilitytoolbar.uciAttachEvent('click', 'onclick', document.getElementById('uci_ES'), function () { return UciIhm.changement_langue('ES'); });
     accessibilitytoolbar.uciAttachEvent('click', 'onclick', document.getElementById('uci_PL'), function () { return UciIhm.changement_langue('PL'); });
 
-    accessibilitytoolbar.uciAttachEvent('click', 'onclick', document.getElementById('uci_shortcut_Q'), function () { UciIhm.update_shortcut('Q'); console.log("on click event");});
-    accessibilitytoolbar.uciAttachEvent('click', 'onclick', document.getElementById('uci_shortcut_S'), function () { UciIhm.update_shortcut('S'); console.log("on click event");});
-    accessibilitytoolbar.uciAttachEvent('click', 'onclick', document.getElementById('uci_shortcut_W'), function () { UciIhm.update_shortcut('W'); console.log("on click event");});
-    accessibilitytoolbar.uciAttachEvent('click', 'onclick', document.getElementById('uci_shortcut_X'), function () { UciIhm.update_shortcut('X'); console.log("on click event");});
-    accessibilitytoolbar.uciAttachEvent('click', 'onclick', document.getElementById('uci_shortcut_C'), function () { UciIhm.update_shortcut('C'); console.log("on click event");});
+    accessibilitytoolbar.uciAttachEvent('click', 'onclick', document.getElementById('uci_shortcut_Q'), function () { UciIhm.update_shortcut('Q'); });
+    accessibilitytoolbar.uciAttachEvent('click', 'onclick', document.getElementById('uci_shortcut_S'), function () { UciIhm.update_shortcut('S'); });
+    accessibilitytoolbar.uciAttachEvent('click', 'onclick', document.getElementById('uci_shortcut_W'), function () { UciIhm.update_shortcut('W'); });
+    accessibilitytoolbar.uciAttachEvent('click', 'onclick', document.getElementById('uci_shortcut_X'), function () { UciIhm.update_shortcut('X'); });
+    accessibilitytoolbar.uciAttachEvent('click', 'onclick', document.getElementById('uci_shortcut_C'), function () { UciIhm.update_shortcut('C'); });
 
     accessibilitytoolbar.uciAttachEvent('submit', 'onsubmit', document.getElementById('uci_form'), function (e) { accessibilitytoolbar.stopEvt(e); UciValidation.Validation(); UciIhm.confirm_validation(); });
     accessibilitytoolbar.uciAttachEvent('reset', 'onreset', document.getElementById('uci_form'), function (e) { accessibilitytoolbar.stopEvt(e); UciValidation.Annulation(); });
