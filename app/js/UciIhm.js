@@ -512,10 +512,15 @@ UciIhm = {
             function(e) {
               accessibilitytoolbar.stopEvt(e);
               accessibilitytoolbar.userPref.set("a11ySupShortcut", shortcut);
+              //settingthe value of the switch toolbar to on
+              accessibilitytoolbar.userPref.set("a11ySiteWebEnabled", "on");
               console.log(shortcut);
               accessibilitytoolbar.needToReload = true;
               accessibilitytoolbar.reloadToolbar();
               accessibilitytoolbar.saveUserPref(accessibilitytoolbar.userPref.settings.current);
+              document.getElementById('uci_shortcut_menu_button').innerHTML = accessibilitytoolbar.userPref.get("a11ySupShortcut");
+              document.getElementById('a11yShortCut').innerHTML = accessibilitytoolbar.get('uci_shortcut_title')+accessibilitytoolbar.get('uci_shortcut_title_currently')+accessibilitytoolbar.userPref.get("a11ySupShortcut")+")";
+              document.getElementById('uci_shortcut_menu_button').title = accessibilitytoolbar.get('uci_shortcut_title')+accessibilitytoolbar.get('uci_shortcut_title_currently')+accessibilitytoolbar.userPref.get("a11ySupShortcut")+")";
               UciValidation.Validation();
               UciProfile.hide_save_profile();
               UciIhm.confirm_validation();
