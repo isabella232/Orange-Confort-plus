@@ -1045,6 +1045,10 @@ li.uci_dropdown-divider {
 	margin-left: 1em;
 	font-size: 0.875em;
 }
+
+.uci_link_help_shortcut_aligned {
+	margin-top: 1.6rem;
+}
 .uci_fleche_help_bulle {
 	border-right-color: #ccc;
 	border-width: 10px 10px 10px 0;

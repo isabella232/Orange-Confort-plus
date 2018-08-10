@@ -61,7 +61,7 @@ UciSettings = {
                     
                     ["li", { "class": "uci_inline uci_menu_bton", id:"uci_shortcut_list" },
                       ["button", {"class":"ucibtn ucibtn-sm ucibtn-secondary uci_bton_menu uci_dropdown","title":accessibilitytoolbar.get('uci_shortcut_title')+accessibilitytoolbar.get('uci_shortcut_title_currently')+accessibilitytoolbar.userPref.get("a11ySupShortcut")+")" ,"aria-labelledby":"a11yShortCut", "aria-haspopup":"true", "aria-expanded":"false", id:"uci_shortcut_menu_button", type:"button"}, accessibilitytoolbar.userPref.get("a11ySupShortcut")],
-                      accessibilitytoolbar.makeHelpTpl("uci_link_help_shortcut","uci_help_shortcut", accessibilitytoolbar.get('uci_help_shortcut')),
+                      
                       ["div",
                         ["div", {id:"uci_shortcut_menu", style:"display:none;", class:"uci_submenu"},
                           ["div", {id:"uci_shortcut", "class":"uci_lang"},
@@ -108,7 +108,10 @@ UciSettings = {
                           ]
                         ]
                       ]
-                    ]
+                    ],
+                    ["div", {"class":"uci_link_help_shortcut_aligned"},
+                  accessibilitytoolbar.makeHelpTpl("uci_link_help_shortcut","uci_help_shortcut", accessibilitytoolbar.get('uci_help_shortcut')),
+                  ]
                 ]
               ]
             
