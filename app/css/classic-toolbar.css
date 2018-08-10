@@ -1049,6 +1049,9 @@ li.uci_dropdown-divider {
 .uci_link_help_shortcut_aligned {
 	margin-top: 1.6rem;
 }
+.uci_shortcut_menu_aligned {
+	top: 2.6rem;
+}
 .uci_fleche_help_bulle {
 	border-right-color: #ccc;
 	border-width: 10px 10px 10px 0;

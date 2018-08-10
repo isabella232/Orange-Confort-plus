@@ -63,7 +63,7 @@ UciSettings = {
                       ["button", {"class":"ucibtn ucibtn-sm ucibtn-secondary uci_bton_menu uci_dropdown","title":accessibilitytoolbar.get('uci_shortcut_title')+accessibilitytoolbar.get('uci_shortcut_title_currently')+accessibilitytoolbar.userPref.get("a11ySupShortcut")+")" ,"aria-labelledby":"a11yShortCut", "aria-haspopup":"true", "aria-expanded":"false", id:"uci_shortcut_menu_button", type:"button"}, accessibilitytoolbar.userPref.get("a11ySupShortcut")],
                       
                       ["div",
-                        ["div", {id:"uci_shortcut_menu", style:"display:none;", class:"uci_submenu"},
+                        ["div", {id:"uci_shortcut_menu", style:"display:none;", class:"uci_submenu uci_shortcut_menu_aligned"},
                           ["div", {id:"uci_shortcut", "class":"uci_lang"},
                             ["input", {
                               "class": (accessibilitytoolbar.userPref.get("a11ySupShortcut") === "Q" ? "uci_choix active" : "uci_choix") + " ucibtn ucibtn-sm ucibtn-secondary",
