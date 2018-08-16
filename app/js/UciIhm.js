@@ -293,6 +293,8 @@ UciIhm = {
         button.setAttribute('aria-expanded',true);
         var li = button.parentNode;
         li.className = 'uci_inline uci_menu_bton active';
+        if(idMenu === "uci_shortcut_menu")
+          document.getElementById('uci_shortcut_Q').focus();
       } else {
         UciIhm.uci_close_menu(idMenu);
       }
