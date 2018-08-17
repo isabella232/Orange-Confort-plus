@@ -531,6 +531,16 @@ UciIhm = {
     }
     return false;
   },
+
+  focus_on_first: function() {
+    if(event.keyCode == 9){
+      document.getElementById('focusguard_2').onfocus = function() {
+        document.getElementById('uci_shortcut_Q').focus();
+      };
+    }
+    return false;
+  },
+
   remove_all: function () {
         if(confirm(accessibilitytoolbar.get('uci_remove_all_settings'))) {            
             accessibilitytoolbar.userPref.setStoredValue();

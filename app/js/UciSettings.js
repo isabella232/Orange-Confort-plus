@@ -71,6 +71,7 @@ UciSettings = {
                               name: "uci_shortcut_Q",
                               value: "Q",
                               id: "uci_shortcut_Q",
+                              tabindex:1,
                               title: accessibilitytoolbar.get('uci_txt_menu_shortcut_q')
                             }],
                             ["input", {
@@ -79,6 +80,7 @@ UciSettings = {
                               name: "uci_shortcut_S",
                               value: "S",
                               id: "uci_shortcut_S",
+                              tabindex:2,
                               title: accessibilitytoolbar.get('uci_txt_menu_shortcut_s')
                             }],
                             ["input", {
@@ -87,6 +89,7 @@ UciSettings = {
                               name: "uci_shortcut_W",
                               value: "W",
                               id: "uci_shortcut_W",
+                              tabindex:3,
                               title: accessibilitytoolbar.get('uci_txt_menu_shortcut_w')
                             }],
                             ["input", {
@@ -95,6 +98,7 @@ UciSettings = {
                               name: "uci_shortcut_X",
                               value: "X",
                               id: "uci_shortcut_X",
+                              tabindex:4,
                               title: accessibilitytoolbar.get('uci_txt_menu_shortcut_x')
                             }],
                             ["input", {
@@ -103,8 +107,10 @@ UciSettings = {
                               name: "uci_shortcut_C",
                               value: "C",
                               id: "uci_shortcut_C",
+                              tabindex:5,
                               title: accessibilitytoolbar.get('uci_txt_menu_shortcut_c')
                             }],
+                            ["div", {id:"focusguard_2", tabindex:6,}]
                           ]
                         ]
                       ]

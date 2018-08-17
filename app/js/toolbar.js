@@ -2828,6 +2828,8 @@ accessibilitytoolbar = {
     accessibilitytoolbar.uciAttachEvent('click', 'onclick', document.getElementById('uci_shortcut_X'), function () { UciIhm.update_shortcut('X'); });
     accessibilitytoolbar.uciAttachEvent('click', 'onclick', document.getElementById('uci_shortcut_C'), function () { UciIhm.update_shortcut('C'); });
 
+    accessibilitytoolbar.uciAttachEvent('keydown', 'onkeydown', document.getElementById('uci_shortcut_C'), function () { UciIhm.focus_on_first(); });
+
     accessibilitytoolbar.uciAttachEvent('submit', 'onsubmit', document.getElementById('uci_form'), function (e) { accessibilitytoolbar.stopEvt(e); UciValidation.Validation(); UciIhm.confirm_validation(); });
     accessibilitytoolbar.uciAttachEvent('reset', 'onreset', document.getElementById('uci_form'), function (e) { accessibilitytoolbar.stopEvt(e); UciValidation.Annulation(); });
     if(onOffEnabled) {
