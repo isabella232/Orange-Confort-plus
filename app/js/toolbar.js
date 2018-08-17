@@ -2828,6 +2828,12 @@ accessibilitytoolbar = {
     accessibilitytoolbar.uciAttachEvent('click', 'onclick', document.getElementById('uci_shortcut_X'), function () { UciIhm.update_shortcut('X'); });
     accessibilitytoolbar.uciAttachEvent('click', 'onclick', document.getElementById('uci_shortcut_C'), function () { UciIhm.update_shortcut('C'); });
 
+    accessibilitytoolbar.uciAttachEvent('keyup', 'onkeyup', document.getElementById('uci_shortcut_Q'), function () { if (event.keyCode === 13) { UciIhm.update_shortcut('Q');} });
+    accessibilitytoolbar.uciAttachEvent('keyup', 'onkeyup', document.getElementById('uci_shortcut_S'), function () { if (event.keyCode === 13) { UciIhm.update_shortcut('S');} });
+    accessibilitytoolbar.uciAttachEvent('keyup', 'onkeyup', document.getElementById('uci_shortcut_W'), function () { if (event.keyCode === 13) { UciIhm.update_shortcut('W');} });
+    accessibilitytoolbar.uciAttachEvent('keyup', 'onkeyup', document.getElementById('uci_shortcut_X'), function () { if (event.keyCode === 13) { UciIhm.update_shortcut('X');} });
+    accessibilitytoolbar.uciAttachEvent('keyup', 'onkeyup', document.getElementById('uci_shortcut_C'), function () { if (event.keyCode === 13) { UciIhm.update_shortcut('C');} });
+
     accessibilitytoolbar.uciAttachEvent('keydown', 'onkeydown', document.getElementById('uci_shortcut_C'), function () { UciIhm.focus_on_first(); });
 
     accessibilitytoolbar.uciAttachEvent('submit', 'onsubmit', document.getElementById('uci_form'), function (e) { accessibilitytoolbar.stopEvt(e); UciValidation.Validation(); UciIhm.confirm_validation(); });

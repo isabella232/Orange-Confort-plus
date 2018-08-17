@@ -496,6 +496,7 @@ UciIhm = {
     if(accessibilitytoolbar.userPref.get("a11ySupShortcut") !== shortcut ) {
       if(accessibilitytoolbar.userPref.settings.current.length >= 0) {
         this.uci_close_shortcutmenu('uci_shortcut_menu');
+        document.getElementById('uci_annuler').focus();
         document.getElementById('uci_validation').className = "";
           accessibilitytoolbar.uciAttachEvent('click', 'onclick', document.getElementById('uci_annuler'),
           function (e) {
