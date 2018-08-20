@@ -2319,6 +2319,16 @@ accessibilitytoolbar = {
     }
     return false;
   },
+  uci_focus_on_last: function(e) {
+    if (!e) e = window.event;
+    if((e.shiftKey || e.metaKey) && e.keyCode == 9){
+      document.getElementById('focusguard_1').onfocus = function() {
+        document.getElementById('uci_shortcut_C').focus();
+        console.log("test");
+      };
+    }
+    return false;
+  },
   //
   uci_MenuButtonEvent: function (e) {
     if (!e)
@@ -2844,6 +2854,7 @@ accessibilitytoolbar = {
     accessibilitytoolbar.uciAttachEvent('keyup', 'onkeyup', document.getElementById('uci_shortcut_C'), function (e) { if (!e) e = window.event; var target = e.target || e.srcElement; if (target.keyCode === 13) { UciIhm.update_shortcut('C');} });
 
     accessibilitytoolbar.uciAttachEvent('keydown', 'onkeydown', document.getElementById('uci_shortcut_C'), function (e) { accessibilitytoolbar.uci_focus_on_first(e); });
+    accessibilitytoolbar.uciAttachEvent('keydown', 'onkeydown', document.getElementById('uci_shortcut_Q'), function (e) { accessibilitytoolbar.uci_focus_on_last(e); });
 
     accessibilitytoolbar.uciAttachEvent('submit', 'onsubmit', document.getElementById('uci_form'), function (e) { accessibilitytoolbar.stopEvt(e); UciValidation.Validation(); UciIhm.confirm_validation(); });
     accessibilitytoolbar.uciAttachEvent('reset', 'onreset', document.getElementById('uci_form'), function (e) { accessibilitytoolbar.stopEvt(e); UciValidation.Annulation(); });

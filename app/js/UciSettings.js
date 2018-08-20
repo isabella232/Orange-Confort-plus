@@ -62,13 +62,14 @@ UciSettings = {
                       ["div",
                         ["div", {id:"uci_shortcut_menu", style:"display:none;", class:"uci_submenu uci_shortcut_menu_aligned"},
                           ["div", {id:"uci_shortcut", "class":"uci_lang"},
+                          ["div", {id:"focusguard_1", tabindex:1,}],
                             ["input", {
                               "class": (accessibilitytoolbar.userPref.get("a11ySupShortcut") === "Q" ? "uci_choix active" : "uci_choix") + " ucibtn ucibtn-sm ucibtn-secondary",
                               type: "button",
                               name: "uci_shortcut_Q",
                               value: "Q",
                               id: "uci_shortcut_Q",
-                              tabindex:1,
+                              tabindex:2,
                               title: accessibilitytoolbar.get('uci_txt_menu_shortcut_q')
                             }],
                             ["input", {
@@ -77,7 +78,7 @@ UciSettings = {
                               name: "uci_shortcut_S",
                               value: "S",
                               id: "uci_shortcut_S",
-                              tabindex:2,
+                              tabindex:3,
                               title: accessibilitytoolbar.get('uci_txt_menu_shortcut_s')
                             }],
                             ["input", {
@@ -86,7 +87,7 @@ UciSettings = {
                               name: "uci_shortcut_W",
                               value: "W",
                               id: "uci_shortcut_W",
-                              tabindex:3,
+                              tabindex:4,
                               title: accessibilitytoolbar.get('uci_txt_menu_shortcut_w')
                             }],
                             ["input", {
@@ -95,7 +96,7 @@ UciSettings = {
                               name: "uci_shortcut_X",
                               value: "X",
                               id: "uci_shortcut_X",
-                              tabindex:4,
+                              tabindex:5,
                               title: accessibilitytoolbar.get('uci_txt_menu_shortcut_x')
                             }],
                             ["input", {
@@ -104,10 +105,10 @@ UciSettings = {
                               name: "uci_shortcut_C",
                               value: "C",
                               id: "uci_shortcut_C",
-                              tabindex:5,
+                              tabindex:6,
                               title: accessibilitytoolbar.get('uci_txt_menu_shortcut_c')
                             }],
-                            ["div", {id:"focusguard_2", tabindex:6,}]
+                            ["div", {id:"focusguard_2", tabindex:7,}]
                           ]
                         ]
                       ]
