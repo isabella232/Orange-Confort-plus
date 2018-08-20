@@ -501,7 +501,7 @@ UciIhm = {
         document.getElementById('uci_shortcut_'+shortcut).classList.add("active");
         document.getElementById('uci_shortcut_'+accessibilitytoolbar.userPref.get("a11ySupShortcut")).classList.remove("active");
         this.uci_close_shortcutmenu('uci_shortcut_menu');
-        document.getElementById('uci_annuler').focus();
+        document.getElementById('uci_shortcut_menu_button').focus();
         document.getElementById('uci_validation').className = "";
           accessibilitytoolbar.uciAttachEvent('click', 'onclick', document.getElementById('uci_annuler'),
           function (e) {
