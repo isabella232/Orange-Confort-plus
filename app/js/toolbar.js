@@ -2927,6 +2927,22 @@ accessibilitytoolbar = {
     accessibilitytoolbar.uciAttachEvent('mousemove','onmousemove',document, accessibilitytoolbar.mouseMouveEvent);
   },
 
+  shortcutKeyupEvent: function(e){
+    var values={"Q":81, "S":83, "W":87, "X":88, "C":67};
+    // Chrome, Edge, IE, Opera, Safari
+    if((e.altKey || e.metaKey) && e.keyCode == values[accessibilitytoolbar.userPref.get("a11ySupShortcut")]){
+      if(document.getElementById("cdu_close").style.display === "none"){
+        document.getElementById("cdu_close").style.display = "block";
+        document.getElementById("cdu_toolbar").classList.add("cdu_displayN");
+        onOffEnabled="true";
+      }else{
+        document.getElementById("cdu_close").style.display = "none";
+        document.getElementById("cdu_toolbar").classList.remove("cdu_displayN");
+        onOffEnabled="false";
+      }
+    }
+  },
+
   /**
    * Global document keyboard eventHandler for catching shortcuts
    */
@@ -4039,9 +4055,6 @@ accessibilitytoolbar = {
     accessibilitytoolbar.loadTheToolbar();
 
     //Adding the opening of the toolbar with access key
-    var toolbarElement = document.getElementById("confort+");
-    toolbarElement.accessKey = accessibilitytoolbar.userPref.get("a11ySupShortcut");
-    onOffEnabled="true";
   },
 
   /**
@@ -4192,9 +4205,8 @@ accessibilitytoolbar = {
     accessibilitytoolbar.loadTheToolbar();
 
     //Adding the opening of the toolbar with access key
-    var toolbarElement = document.getElementById("confort+");
-    toolbarElement.accessKey = accessibilitytoolbar.userPref.get("a11ySupShortcut");
-    onOffEnabled="true";
+
+    accessibilitytoolbar.uciAttachEvent('keyup','onkeyup',document, accessibilitytoolbar.shortcutKeyupEvent);
   },
 
   loadTheToolbar: function () {
