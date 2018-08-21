@@ -495,11 +495,14 @@ UciIhm = {
   update_shortcut: function (/* String*/shortcut) {
     if(accessibilitytoolbar.userPref.get("a11ySupShortcut") !== shortcut ) {
       if(accessibilitytoolbar.userPref.settings.current.length >= 0) {
-
         document.getElementById('uci_shortcut_menu_button').innerHTML = shortcut;
         document.getElementById('uci_shortcut_menu_button').title = accessibilitytoolbar.get('uci_shortcut_title')+accessibilitytoolbar.get('uci_shortcut_title_currently')+shortcut+" )";
-        document.getElementById('uci_shortcut_'+shortcut).classList.add("active");
-        document.getElementById('uci_shortcut_'+accessibilitytoolbar.userPref.get("a11ySupShortcut")).classList.remove("active");
+        var previous_elem = (document.getElementById("uci_shortcut_menu").getElementsByClassName("uci_choix active ucibtn ucibtn-sm ucibtn-secondary")[0].id);
+        if('uci_shortcut_'+shortcut !== previous_elem){
+          document.getElementById("uci_shortcut_menu").getElementsByClassName("uci_choix active ucibtn ucibtn-sm ucibtn-secondary")[0].classList.remove("active");
+          document.getElementById('uci_shortcut_'+shortcut).classList.add("active");
+          document.getElementById('uci_shortcut_'+accessibilitytoolbar.userPref.get("a11ySupShortcut")).classList.remove("active");
+        }
         this.uci_close_shortcutmenu('uci_shortcut_menu');
         document.getElementById('uci_shortcut_menu_button').focus();
         document.getElementById('uci_validation').className = "";
