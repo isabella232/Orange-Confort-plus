@@ -50,11 +50,11 @@ UciSettings = {
               accessibilitytoolbar.makeHelpTpl("uci_link_help_disablepppictures","uci_help_disablepppictures",accessibilitytoolbar.get('uci_help_disablepppictures'))
             ]
           ],
-          ["div", {"class":"uci_w50-left"},
+          ["div", {"class":"uci_w50-left margin-left margin-right"},
               ["div", {"class":"margin-top-lg"},
                 ["label", {"id":"a11yShortCut"}, accessibilitytoolbar.get('uci_shortcut_title')+accessibilitytoolbar.get('uci_shortcut_title_currently')+accessibilitytoolbar.userPref.get("a11ySupShortcut")+")"],
-                  ["p", {"class":"font-normal margin-left-lg margin-top margin-bottom"}, accessibilitytoolbar.get('uci_shortcut_text')],
-                    ["label", {"class": "uci_inline uci_shortcut_aligned","for":"uci_shortcut_menu_button"}, accessibilitytoolbar.get('uci_label_shortcut')],
+                  ["p", {"class":"font-normal margin-left-lg margin-top"}, accessibilitytoolbar.get('uci_shortcut_text')],
+                    ["label", {"class": "uci_inline uci_shortcut_aligned margin-left-lg","for":"uci_shortcut_menu_button"}, accessibilitytoolbar.get('uci_label_shortcut')],
                     
                     ["li", { "class": "uci_inline uci_menu_bton", id:"uci_shortcut_list" },
                       ["button", {"class":"ucibtn ucibtn-sm ucibtn-secondary uci_bton_menu uci_dropdown","title":accessibilitytoolbar.get('uci_shortcut_title')+accessibilitytoolbar.get('uci_shortcut_title_currently')+accessibilitytoolbar.userPref.get("a11ySupShortcut")+")" ,"aria-labelledby":"a11yShortCut", "aria-haspopup":"true", "aria-expanded":"false", id:"uci_shortcut_menu_button", type:"button"}, accessibilitytoolbar.userPref.get("a11ySupShortcut")],
