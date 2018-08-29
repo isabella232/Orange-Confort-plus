@@ -51,11 +51,8 @@ function UciUserPref() {
      */
     this.convertMatrixv3 = {
         "a11ySupShortcut-0": "a11ySupShortcut-Q",
-        "a11ySupShortcut-1": "a11ySupShortcut-S",
-        "a11ySupShortcut-2": "a11ySupShortcut-W",
-        "a11ySupShortcut-3": "a11ySupShortcut-X",
+        "a11ySupShortcut-1": "a11ySupShortcut-P",
         "a11ySupShortcut-4": "a11ySupShortcut-C",
-        "a11ySupShortcut-5": "a11ySupShortcut-V",
 
         "a11ySiteWebEnabled-0": "a11ySiteWebEnabled-on",
         "a11ySiteWebEnabled-1": "a11ySiteWebEnabled-off",

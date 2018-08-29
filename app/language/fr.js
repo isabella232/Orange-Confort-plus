@@ -172,7 +172,7 @@ traduction['FR']={
   uci_txt_menu_change_lang_fr:"Afficher le service en Fran\347ais",
   uci_txt_menu_change_lang_pl:"Afficher le service en Polonais",
   uci_txt_menu_shortcut_w:"Utiliser la lettre W avec le raccourci clavier",
-  uci_txt_menu_shortcut_s:"Utiliser la lettre S avec le raccourci clavier",
+  uci_txt_menu_shortcut_p:"Utiliser la lettre p avec le raccourci clavier",
   uci_txt_menu_shortcut_q:"Utiliser la lettre Q avec le raccourci clavier",
   uci_txt_menu_shortcut_x:"Utiliser la lettre X avec le raccourci clavier",
   uci_txt_menu_shortcut_c:"Utiliser la lettre C avec le raccourci clavier",

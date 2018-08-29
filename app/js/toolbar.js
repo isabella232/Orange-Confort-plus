@@ -2842,15 +2842,11 @@ accessibilitytoolbar = {
     accessibilitytoolbar.uciAttachEvent('click', 'onclick', document.getElementById('uci_PL'), function () { return UciIhm.changement_langue('PL'); });
 
     accessibilitytoolbar.uciAttachEvent('click', 'onclick', document.getElementById('uci_shortcut_Q'), function () { UciIhm.update_shortcut('Q'); });
-    accessibilitytoolbar.uciAttachEvent('click', 'onclick', document.getElementById('uci_shortcut_S'), function () { UciIhm.update_shortcut('S'); });
-    accessibilitytoolbar.uciAttachEvent('click', 'onclick', document.getElementById('uci_shortcut_W'), function () { UciIhm.update_shortcut('W'); });
-    accessibilitytoolbar.uciAttachEvent('click', 'onclick', document.getElementById('uci_shortcut_X'), function () { UciIhm.update_shortcut('X'); });
+    accessibilitytoolbar.uciAttachEvent('click', 'onclick', document.getElementById('uci_shortcut_P'), function () { UciIhm.update_shortcut('P'); });
     accessibilitytoolbar.uciAttachEvent('click', 'onclick', document.getElementById('uci_shortcut_C'), function () { UciIhm.update_shortcut('C'); });
 
     accessibilitytoolbar.uciAttachEvent('keyup', 'onkeyup', document.getElementById('uci_shortcut_Q'), function (e) { if (!e) e = window.event; var target = e.target || e.srcElement; if (target.keyCode === 13) { UciIhm.update_shortcut('Q');} });
-    accessibilitytoolbar.uciAttachEvent('keyup', 'onkeyup', document.getElementById('uci_shortcut_S'), function (e) { if (!e) e = window.event; var target = e.target || e.srcElement; if (target.keyCode === 13) { UciIhm.update_shortcut('S');} });
-    accessibilitytoolbar.uciAttachEvent('keyup', 'onkeyup', document.getElementById('uci_shortcut_W'), function (e) { if (!e) e = window.event; var target = e.target || e.srcElement; if (target.keyCode === 13) { UciIhm.update_shortcut('W');} });
-    accessibilitytoolbar.uciAttachEvent('keyup', 'onkeyup', document.getElementById('uci_shortcut_X'), function (e) { if (!e) e = window.event; var target = e.target || e.srcElement; if (target.keyCode === 13) { UciIhm.update_shortcut('X');} });
+    accessibilitytoolbar.uciAttachEvent('keyup', 'onkeyup', document.getElementById('uci_shortcut_P'), function (e) { if (!e) e = window.event; var target = e.target || e.srcElement; if (target.keyCode === 13) { UciIhm.update_shortcut('P');} });
     accessibilitytoolbar.uciAttachEvent('keyup', 'onkeyup', document.getElementById('uci_shortcut_C'), function (e) { if (!e) e = window.event; var target = e.target || e.srcElement; if (target.keyCode === 13) { UciIhm.update_shortcut('C');} });
 
     accessibilitytoolbar.uciAttachEvent('keydown', 'onkeydown', document.getElementById('uci_shortcut_C'), function (e) { accessibilitytoolbar.uci_focus_on_first(e); });
@@ -2928,7 +2924,7 @@ accessibilitytoolbar = {
   },
 
   shortcutKeyupEvent: function(e){
-    var values={"Q":81, "S":83, "W":87, "X":88, "C":67};
+    var values={"Q":81, "P":80, "W":87, "X":88, "C":67};
     // Chrome, Edge, IE, Opera, Safari
     if((e.altKey || e.metaKey) && e.keyCode == values[accessibilitytoolbar.userPref.get("a11ySupShortcut")]){
       if(document.getElementById("cdu_close").style.display === "none"){

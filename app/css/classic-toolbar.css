@@ -764,6 +764,18 @@ a.cdu_hide:focus {
 	min-width: 14em;
 }
 
+.uci_shortcut_submenu {
+	border-width: 2px;
+	border-style: solid;
+	position: absolute;
+	right: -2px;
+	top: 3.125em;
+	padding: 0;
+	background-color: #FFFFFF;
+	z-index: 2147483645;
+	zoom: 1;
+}
+
 .uci_menu_bton.active .uci_bton_menu {
 	color: #f16e00;
 }
