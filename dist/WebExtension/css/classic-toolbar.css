@@ -764,6 +764,18 @@ a.cdu_hide:focus {
 	min-width: 14em;
 }
 
+.uci_shortcut_submenu {
+	border-width: 2px;
+	border-style: solid;
+	position: absolute;
+	right: -2px;
+	top: 3.125em;
+	padding: 0;
+	background-color: #FFFFFF;
+	z-index: 2147483645;
+	zoom: 1;
+}
+
 .uci_menu_bton.active .uci_bton_menu {
 	color: #f16e00;
 }
@@ -891,6 +903,14 @@ li.uci_dropdown-divider {
 .uci_inline {
 	display: block;
 	float: left;
+}
+
+.uci_shortcut_aligned{
+	margin-top:1.3rem;
+}
+
+.uci_shortcut_bottom{
+	margin-bottom:0.25rem;
 }
 
 .uci_liste_bton {
@@ -1038,6 +1058,15 @@ li.uci_dropdown-divider {
 	margin-left: 1em;
 	font-size: 0.875em;
 }
+
+.uci_link_help_shortcut_aligned {
+	margin-top: 1.6rem;
+}
+
+.uci_shortcut_menu_aligned {
+	top: 2.6rem;
+}
+
 .uci_fleche_help_bulle {
 	border-right-color: #ccc;
 	border-width: 10px 10px 10px 0;
@@ -1842,6 +1871,11 @@ li.uci_dropdown-divider {
 	border-right: 1px solid #CCC;
 	line-height: 1.125;
 }
+
+li[id=uci_shortcut_list] {
+	border-right: 0px solid !important;
+}
+
 #accessibilitytoolbarGraphic .uci_menu_bton {
 	padding: .625em;
 	position: relative;
