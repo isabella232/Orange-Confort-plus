@@ -50,6 +50,10 @@ function UciUserPref() {
      * @private
      */
     this.convertMatrixv3 = {
+        "a11ySupShortcut-0": "a11ySupShortcut-Q",
+        "a11ySupShortcut-1": "a11ySupShortcut-P",
+        "a11ySupShortcut-4": "a11ySupShortcut-C",
+
         "a11ySiteWebEnabled-0": "a11ySiteWebEnabled-on",
         "a11ySiteWebEnabled-1": "a11ySiteWebEnabled-off",
         "a11yToolbarEnable-0": "a11yToolbarEnable-off",
@@ -188,9 +192,10 @@ function UciUserPref() {
     
     this.maskMatrixv3 = {
         // Mask Name                | Dec Value
-        "a11ySiteWebEnabled":     [39,1],
-        "a11yToolbarEnable":      [38,1],
-        "a11yLanguage":           [37,1],
+        "a11ySiteWebEnabled":     [40,1],
+        "a11yToolbarEnable":      [39,1],
+        "a11yLanguage":           [38,1],
+        "a11ySupShortcut":        [37,1],
         "a11yJumpToContent":      [36,1],
         "a11yLinearize":          [35,1],
         "a11yBigger":             [34,1],
@@ -265,7 +270,8 @@ function UciUserPref() {
         "a11ySupEffetTransp":     "false",
         "a11ySupImageFont" :      "false",
         "a11ySupImageFirstPlan" : "false",
-        "a11ySiteWebEnabled" :    "on"
+        "a11ySiteWebEnabled" :    "on",
+        "a11ySupShortcut"    : "Q"
     };
     
     /**
@@ -286,7 +292,7 @@ function UciUserPref() {
             pref = this.predefinedSettings[this.settings.current];
         }
         // uniquement si le nombre de caractères du cookie est correct!
-        if(pref.length===37)
+        if(pref.length===38)
         {
           for (prefName in this.maskMatrixv3) {
             if(prefName !== "a11ySiteWebEnabled" && prefName !== "a11yToolbarEnable" && prefName !== "a11yLanguage") {

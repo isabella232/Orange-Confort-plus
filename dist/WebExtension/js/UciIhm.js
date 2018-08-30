@@ -26,6 +26,7 @@
 UciIhm = {
     timerFocusHelpOut: null,
     timerFocusLangOut: null,
+    timerFocusShortcutOut: null,
   /*
    * @public
    * @constructor
@@ -292,6 +293,8 @@ UciIhm = {
         button.setAttribute('aria-expanded',true);
         var li = button.parentNode;
         li.className = 'uci_inline uci_menu_bton active';
+        if(idMenu === "uci_shortcut_menu")
+          document.getElementById('uci_shortcut_Q').focus();
       } else {
         UciIhm.uci_close_menu(idMenu);
       }
@@ -317,12 +320,37 @@ UciIhm = {
     },
 
     /**
+     * Close a submenu
+     * 
+     */
+    uci_close_shortcutmenu: function(idMenu) {
+      var menu = document.getElementById(idMenu);
+      if(menu)
+      {
+        menu.style.display = "none";
+        var button = document.getElementById(idMenu+"_button");
+        button.setAttribute('aria-expanded',false);
+        var li = button.parentNode;
+        li.className = 'uci_inline uci_menu_bton';      
+      }
+    },
+
+    /**
      * If focus really goes out, close the submenu
      * 
      */
     setFocusHelpOut: function() {
       clearTimeout(this.timerFocusHelpOut);
       this.timerFocusHelpOut = setTimeout(function(){UciIhm.uci_close_menu('uci_help_menu')},10);
+    },
+
+    /**
+     * If focus really goes out, close the submenu
+     * 
+     */
+    setFocusShortcutOut: function() {
+      clearTimeout(this.timerFocusShortcutOut);
+      this.timerFocusShortcutOut = setTimeout(function(){UciIhm.uci_close_shortcutmenu('uci_shortcut_menu')},10);
     },
 
     /**
@@ -460,6 +488,61 @@ UciIhm = {
         accessibilitytoolbar.saveUserPref();
       }
       
+    }
+    return false;
+  },
+  update_shortcut: function (/* String*/shortcut) {
+    if(accessibilitytoolbar.userPref.get("a11ySupShortcut") !== shortcut ) {
+      if(accessibilitytoolbar.userPref.settings.current.length >= 0) {
+        document.getElementById('uci_shortcut_menu_button').innerHTML = shortcut;
+        document.getElementById('uci_shortcut_menu_button').title = accessibilitytoolbar.get('uci_shortcut_title')+accessibilitytoolbar.get('uci_shortcut_title_currently')+shortcut+" )";
+        var previous_elem = (document.getElementById("uci_shortcut_menu").getElementsByClassName("uci_choix active ucibtn ucibtn-sm ucibtn-secondary")[0].id);
+        if('uci_shortcut_'+shortcut !== previous_elem){
+          document.getElementById("uci_shortcut_menu").getElementsByClassName("uci_choix active ucibtn ucibtn-sm ucibtn-secondary")[0].classList.remove("active");
+          document.getElementById('uci_shortcut_'+shortcut).classList.add("active");
+          document.getElementById('uci_shortcut_'+accessibilitytoolbar.userPref.get("a11ySupShortcut")).classList.remove("active");
+        }
+        this.uci_close_shortcutmenu('uci_shortcut_menu');
+        document.getElementById('uci_shortcut_menu_button').focus();
+        document.getElementById('uci_validation').className = "";
+          accessibilitytoolbar.uciAttachEvent('click', 'onclick', document.getElementById('uci_annuler'),
+          function (e) {
+            accessibilitytoolbar.stopEvt(e);
+            document.getElementById('uci_validation').className = "cdu_n";
+            UciIhm.setFocusShortcutOut();
+
+            document.getElementById('uci_shortcut_menu_button').innerHTML = accessibilitytoolbar.userPref.get("a11ySupShortcut");
+            document.getElementById('a11yShortCut').innerHTML = accessibilitytoolbar.get('uci_shortcut_title')+accessibilitytoolbar.get('uci_shortcut_title_currently')+accessibilitytoolbar.userPref.get("a11ySupShortcut")+")";
+            document.getElementById('uci_shortcut_menu_button').title = accessibilitytoolbar.get('uci_shortcut_title')+accessibilitytoolbar.get('uci_shortcut_title_currently')+accessibilitytoolbar.userPref.get("a11ySupShortcut")+")";
+            document.getElementById('uci_shortcut_'+shortcut).classList.remove("active");
+            document.getElementById('uci_shortcut_'+accessibilitytoolbar.userPref.get("a11ySupShortcut")).classList.add("active");
+
+           });
+
+          accessibilitytoolbar.uciAttachEvent('click', 'onclick', document.getElementById('uci_valider'),
+          function (e) { 
+          accessibilitytoolbar.stopEvt(e);
+          document.getElementById('uci_validation').className = "cdu_n";
+          UciProfile.showProfilePopin();
+            accessibilitytoolbar.uciAttachEvent('submit','onsubmit',document.getElementById('uci_form_profil'),
+            function(e) {
+              accessibilitytoolbar.stopEvt(e);
+              accessibilitytoolbar.userPref.set("a11ySupShortcut", shortcut);
+              //settingthe value of the switch toolbar to on
+              accessibilitytoolbar.userPref.set("a11ySiteWebEnabled", "on");
+              accessibilitytoolbar.needToReload = true;
+              accessibilitytoolbar.reloadToolbar();
+              accessibilitytoolbar.saveUserPref(accessibilitytoolbar.userPref.settings.current);
+              document.getElementById('uci_shortcut_menu_button').innerHTML = accessibilitytoolbar.userPref.get("a11ySupShortcut");
+              document.getElementById('a11yShortCut').innerHTML = accessibilitytoolbar.get('uci_shortcut_title')+accessibilitytoolbar.get('uci_shortcut_title_currently')+accessibilitytoolbar.userPref.get("a11ySupShortcut")+")";
+              document.getElementById('uci_shortcut_menu_button').title = accessibilitytoolbar.get('uci_shortcut_title')+accessibilitytoolbar.get('uci_shortcut_title_currently')+accessibilitytoolbar.userPref.get("a11ySupShortcut")+")";
+              UciValidation.Validation();
+              UciProfile.hide_save_profile();
+              UciIhm.confirm_validation();
+            }); 
+        });
+      }
+      accessibilitytoolbar.firstInitToolbar();
     }
     return false;
   },
