@@ -50,6 +50,7 @@ traduction['PL'] = {
   uci_help_listmode: "Ta funkcja pozwala zmienić czcionki użyte na stronie na Twoją domyślną rodzinę czcionek (zdefiniowaną w Twojej przeglądarce lub na Twoim komputerze). Ponadto, tekst wyświetlany jest linearnie, bez podziału na kolumny.",
   uci_help_quickmode: "liczba ignorowanych elementów pomiędzy wybranymi elementami",
   uci_help_telecomande: "Dodaj pionowe przwijanie za pomocą strzałek. Pozwól również na dodanie aktywnych linków widocznych na “przewijaku” po przesunięciu strony.",
+  uci_help_shortcut: "Aby użyć skrótu, postępić zgodnie z regułami tych przeglądarek : IE, Chrome, Safari, Opera 15+: [ALT] + klucz ou Firefox: [ALT] [SHIFT] + klucz",
   uci_iframe_cookie: "Zawartość techniczna Orange Confort+",
   uci_label_10par10: "9",
   uci_label_1sec: "1 sekunda",
@@ -72,6 +73,7 @@ traduction['PL'] = {
   uci_label_regle_horizontale: "Pokaż poziomy linijka",// V4
   uci_label_regle_vertical: "Pokaż pionowy linijkę",// V4
   uci_label_telecomande: "Nawigować “po najechaniu”",
+  uci_label_shortcut: "Alt +",
   uci_legend_delai_clic: "Opóźnienie przed automatycznym kliknięciem",
   uci_legend_menupos: "Pozycja menu",
   uci_legend_pasquickmode: "Kroki trybu szybkiego",
@@ -114,6 +116,9 @@ traduction['PL'] = {
   uci_radio_medium: "Średnie",
   uci_remove_all_settings: "Wszystkie ustawienia zostaną skasowane, czy chcesz kontynuować?",
   uci_rename_profile: "Zmień nazwę profilu",//V4
+  uci_shortcut_title: "Zmienić  wartość skrótu klawiatury",
+  uci_shortcut_title_currently:" (Obecnie ",
+  uci_shortcut_text: "Skrót klawiaturowy włącza lub wyłącza Confort + ",
   uci_serv_name: "Confort",
   uci_stopLoop: "Zatrzymaj nawigację",
   uci_title_color_blackongreen: "Czarny tekst na zielonym tle",
@@ -162,6 +167,11 @@ traduction['PL'] = {
   uci_txt_low_settings: "Zamknij panel więcej ustawień",
   uci_txt_low_settings_display: "Mniej ustawień",
   uci_txt_mask_opacity: "Maskowanie kryjące",//V4
+  uci_txt_menu_shortcut_w: "Użyj litery W za pomocą skrótu klawiaturowego",
+  uci_txt_menu_shortcut_p: "Użyj litery P za pomocą skrótu klawiaturowego",
+  uci_txt_menu_shortcut_q: "Użyj litery Q za pomocą skrótu klawiaturowego",
+  uci_txt_menu_shortcut_x: "Użyj litery X za pomocą skrótu klawiaturowego",
+  uci_txt_menu_shortcut_c: "Użyj litery C za pomocą skrótu klawiaturowego",
   uci_txt_menu_change_lang_en: "Pokaż usługę w języku angielskim",
   uci_txt_menu_change_lang_es: "Pokaż usługę w języku hiszpańskim",
   uci_txt_menu_change_lang_fr: "Pokaż usługę w języku francuskim",
@@ -173,6 +183,7 @@ traduction['PL'] = {
   uci_txt_onglet_motor_help: "Zachowanie",
   uci_txt_onglet_settings: "Settings",
   uci_txt_onglet_typo: "Typografia",
+  uci_txt_onglet_shortcut: "Skrót klawiatury (ou klawiaturowy)",
   uci_txt_visited: "Odwiedzone linki",
   uci_typo_help_changecase: "Ta funkcja pozwala dostosować prezentację tekstów do Twoich potrzeb",
   uci_typo_help_fontfamily: "Ta funkcja pozwala na zmianę czcionki na stronie, w celu poprawienia komfortu czytania",
