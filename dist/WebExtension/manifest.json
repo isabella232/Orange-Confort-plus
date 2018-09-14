@@ -3,7 +3,8 @@
               
   "name": "Orange Confort+"
   ,"description": "Orange Confort+"
-  ,"version": "1.2.0.1"
+  ,"version": "1.2.0.2"
+ 
 
   ,"permissions": [
     "tabs",
@@ -17,12 +18,20 @@
       "19": "data/icon-19.png",
       "38": "data/icon-38.png"          
       } 
+  },
+  "commands": {
+    "toggle-confort-plus": {
+      "suggested_key": {
+        "default": "Alt+Q"
+      },
+      "description": "Activer Confort Plus"
+    }
   },          
   "author": "Orange SA",
   "homepage_url": "http://confort-plus.orange.com/",
   "background": {
     "scripts": ["js/main.js"]
-    ,"persistent": true
+    ,"persistent": false
   }
   ,"web_accessible_resources": [
   	"css/*.css",

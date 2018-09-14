@@ -86,3 +86,31 @@ chrome.browserAction.onClicked.addListener(function(tab) {
 	  });
   }
 });
+
+chrome.commands.onCommand.addListener(function(command){
+	if(command==="toggle-confort-plus"){
+		var value = (localStorage.getItem('isCduEnabled') == 'true') ? false : true;
+		localStorage.setItem('isCduEnabled', value);
+		updateButtonIcon(value);
+		if(localStorage.getItem('isCduEnabled') == 'true') {
+		  chrome.tabs.query({
+			  "status":        "complete"
+		  },
+		  function(tabs) {
+			  for (var i = 0; i < tabs.length; i++) {
+				  startCDU(tabs[i]);
+			  }
+		  });
+		}
+		else {
+			chrome.tabs.query({
+				  "status":        "complete"
+			},
+			function(tabs) {
+				for (var i = 0; i < tabs.length; i++) {
+					chrome.tabs.sendMessage(tabs[i].id, {message: 'orangeconfort+closecdu'});
+				}
+			});
+		}
+	}
+});
