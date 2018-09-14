@@ -50,7 +50,7 @@ traduction['EN']={
   uci_help_listmode:"This feature replaces site font faces with your default font faces (those defined in your browser or computeur). Moreover, the content is linearised and displayed without columns.",
   uci_help_quickmode:"(number of \253 ignored \273 elements between two selected elements)",
   uci_help_telecomande:"Adds arrows to scroll vertically on mouse hover. Also allows clickable link activation on mouse hover after a defined delay.",
-  uci_help_shortcut:" To use the shortcut, follow one  of this rule based on your browser : IE, Chrome, Safari, Opera 15+: [ALT] + clé ou Firefox: [ALT] [SHIFT] + clé",
+  uci_help_shortcut:" To use the shortcut, [ALT] + Key",
   uci_iframe_cookie:"Technical Content Orange Confort+",
   uci_label_10par10:"9",
   uci_label_1sec:"1 second",
