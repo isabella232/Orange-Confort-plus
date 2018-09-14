@@ -13,7 +13,7 @@
     "https://*/"
   ]
   ,"browser_action": {
-    "default_title": "Orange Confort+"
+    "default_title": "Orange Confort+ ( Alt+o to activate )"
     ,"default_icon": {
       "19": "data/icon-19.png",
       "38": "data/icon-38.png"          
@@ -22,7 +22,7 @@
   "commands": {
     "toggle-confort-plus": {
       "suggested_key": {
-        "default": "Alt+Q"
+        "default": "Alt+O"
       },
       "description": "On/Off Confort Plus"
     }
