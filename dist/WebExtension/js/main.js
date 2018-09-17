@@ -87,6 +87,16 @@ chrome.browserAction.onClicked.addListener(function(tab) {
   }
 });
 
+chrome.tabs.onUpdated.addListener(function(tabid, changeInfo, tab) {
+	if (changeInfo.status == 'complete') {
+		chrome.commands.getAll(function(command){
+			if(command[1].shortcut!="Alt+O"){
+				chrome.browserAction.setTitle({title:"Orange Confort+ ("+ command[1].shortcut +")"})
+			}
+		});
+	}
+});
+
 chrome.commands.onCommand.addListener(function(command){
 	if(command==="toggle-confort-plus"){
 		var value = (localStorage.getItem('isCduEnabled') == 'true') ? false : true;

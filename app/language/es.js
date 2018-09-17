@@ -50,7 +50,7 @@ traduction['ES']={
   uci_help_listmode:"Este comando reemplaza el tipo de letra del sitio por las tuyas por defecto (aquellas que has definido en tu ordenador o tu navegador). Adem\341s el contenido se vuelve completamente lineal y sin columnas.",
   uci_help_quickmode:"(cantidad de elementos \253 ignorados \273 entre 2 elementos seleccionados)",
   uci_help_telecomande:"A\361ade flechas verticales para recorrer la p\341gina, activadas al pasar el rat\363n por encima.\nActiva los elementos clicables al pasar el rat\363n por encima, y con un retraso predefinido en los ajustes",
-  uci_help_shortcut: "El atajo de teclado es: IE, Chrome, Safari, Opera 15+: [ALT] + clave o Firefox: [ALT] [SHIFT] + clave",
+  uci_help_shortcut: "El atajo de teclado es: [ALT] + ",
   uci_iframe_cookie:"Contenido t\351cnico Orange Confort+",
   uci_label_10par10:"9",
   uci_label_1sec:"1 segundo",
