@@ -96,7 +96,7 @@ UciSettings = {
                       ]
                     ],
                     ["div", {"class":"uci_link_help_shortcut_aligned"},
-                  accessibilitytoolbar.makeHelpTpl("uci_link_help_shortcut","uci_help_shortcut", accessibilitytoolbar.get('uci_help_shortcut')),
+                  accessibilitytoolbar.makeHelpTpl("uci_link_help_shortcut","uci_help_shortcut", accessibilitytoolbar.get('uci_help_shortcut')+accessibilitytoolbar.userPref.get("a11ySupShortcut")),
                   ]
                 ]
               ]

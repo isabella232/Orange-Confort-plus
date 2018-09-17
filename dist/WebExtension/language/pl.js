@@ -50,7 +50,7 @@ traduction['PL'] = {
   uci_help_listmode: "Ta funkcja pozwala zmienić czcionki użyte na stronie na Twoją domyślną rodzinę czcionek (zdefiniowaną w Twojej przeglądarce lub na Twoim komputerze). Ponadto, tekst wyświetlany jest linearnie, bez podziału na kolumny.",
   uci_help_quickmode: "liczba ignorowanych elementów pomiędzy wybranymi elementami",
   uci_help_telecomande: "Dodaj pionowe przwijanie za pomocą strzałek. Pozwól również na dodanie aktywnych linków widocznych na “przewijaku” po przesunięciu strony.",
-  uci_help_shortcut: "Aby użyć skrótu, postępić zgodnie z regułami : [ALT] + klucz",
+  uci_help_shortcut: "Aby użyć skrótu, postępić zgodnie z regułami : [ALT] + ",
   uci_iframe_cookie: "Zawartość techniczna Orange Confort+",
   uci_label_10par10: "9",
   uci_label_1sec: "1 sekunda",

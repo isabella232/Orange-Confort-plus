@@ -50,7 +50,7 @@ traduction['FR']={
   uci_help_listmode:"Cette commande remplace les polices du site par vos polices par d\351faut (celles que vous avez d\351finies dans votre ordinateur ou votre navigateur). De plus le contenu devient compl\350tement lin\351aire et sans colonnes.",
   uci_help_quickmode:"(nombre d\47\351l\351ments \253 ignor\351s \273 entre deux \351l\351ments s\351lectionn\351s)",
   uci_help_telecomande:"Ajoute des fl\350ches de d\351filement vertical activ\351es au survol de la souris.\nPermet aussi d\47activer les \351l\351ments cliquables au survol de la souris apr\350s le d\351lai param\351tr\351.",
-  uci_help_shortcut:"Le raccourci clavier s'effectue de la sorte : [ALT] + clé ",
+  uci_help_shortcut:"Le raccourci clavier s'effectue de la sorte : [ALT] + ",
   uci_iframe_cookie:"Contenu technique Orange Confort+",
   uci_label_10par10:"9",
   uci_label_1sec:"1 seconde",
