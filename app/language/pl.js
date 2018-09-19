@@ -116,6 +116,9 @@ traduction['PL'] = {
   uci_radio_medium: "Średnie",
   uci_remove_all_settings: "Wszystkie ustawienia zostaną skasowane, czy chcesz kontynuować?",
   uci_rename_profile: "Zmień nazwę profilu",//V4
+  uci_shortcut_title: "Zmienić  wartość skrótu klawiatury",
+  uci_shortcut_title_currently:" (Obecnie ",
+  uci_shortcut_text: "Skrót klawiaturowy włącza lub wyłącza Confort + ",
   uci_serv_name: "Confort",
   uci_shortcut_title: "Zmienić wartość skrótu klawiatury",
   uci_shortcut_text: "Skrót klawiaturowy włącza lub wyłącza Confort + ",
@@ -166,6 +169,11 @@ traduction['PL'] = {
   uci_txt_low_settings: "Zamknij panel więcej ustawień",
   uci_txt_low_settings_display: "Mniej ustawień",
   uci_txt_mask_opacity: "Maskowanie kryjące",//V4
+  uci_txt_menu_shortcut_w: "Użyj litery W za pomocą skrótu klawiaturowego",
+  uci_txt_menu_shortcut_p: "Użyj litery P za pomocą skrótu klawiaturowego",
+  uci_txt_menu_shortcut_q: "Użyj litery Q za pomocą skrótu klawiaturowego",
+  uci_txt_menu_shortcut_x: "Użyj litery X za pomocą skrótu klawiaturowego",
+  uci_txt_menu_shortcut_c: "Użyj litery C za pomocą skrótu klawiaturowego",
   uci_txt_menu_change_lang_en: "Pokaż usługę w języku angielskim",
   uci_txt_menu_change_lang_es: "Pokaż usługę w języku hiszpańskim",
   uci_txt_menu_change_lang_fr: "Pokaż usługę w języku francuskim",
