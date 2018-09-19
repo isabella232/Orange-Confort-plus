@@ -90,7 +90,7 @@ chrome.browserAction.onClicked.addListener(function(tab) {
 chrome.tabs.onUpdated.addListener(function(tabid, changeInfo, tab) {
 	if (changeInfo.status == 'complete') {
 		chrome.commands.getAll(function(command){
-			if(command[1].shortcut!="Alt+O"){
+			if(command[1].shortcut!="Alt+I"){
 				chrome.browserAction.setTitle({title:"Orange Confort+ ("+ command[1].shortcut +")"})
 			}
 		});
